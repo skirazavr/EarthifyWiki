@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to create an Add-on - Earthify Wiki</title>
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../assets/styles/earthify.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="brand">
+        <img src="../assets/images/logo.png" alt="Earthify Logo" class="logo">
+        Earthify Wiki
+    </div>
+</header>
+
+<div class="wrapper">
+
+    <nav class="sidebar">
+        <h3>Navigation</h3>
+
+        <a href="../main.html">Main Page</a>
+        <a href="#repository">Repository Setup</a>
+        <a href="#tags">Available Tags</a>
+    </nav>
+
+    <main class="main">
+
+        <h1>How to create an Add-on (for Minecraft 26.2+ versions)</h1>
+
+        <p>
+            Earthify provides several tags that can be used by external add-ons.
+            Before using them, add the Earthify Maven repository to your project.
+        </p>
+
+        <hr>
+
+        <h2 id="repository">1. Add Earthify Repository</h2>
+
+        <p>
+            Add the Modrinth Maven repository inside your <span style="color:#a0a0a0;">build.gradle</span>:
+        </p>
+
+        <div class="code-block">
+		<button class="copy-btn">Copy</button>
+<pre><code>repositories {
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+}</code></pre>
+        </div>
+
+        <hr>
+		
+		<h2 id="dependency">2. Add Dependency</h2>
+
+<p>
+    Add Panoramic as a runtime dependency:
+</p>
+
+<h3><span style="color:#a0a0a0;">gradle.properties</span></h3>
+
+<div class="code-block">
+<pre><code>earthify_version=1.1.0 # Example version</code></pre>
+</div>
+
+<h3><span style="color:#a0a0a0;">build.gradle</span></h3>
+
+<div class="code-block">
+<button class="copy-btn">Copy</button>
+<pre><code>dependencies {
+    compileOnly "maven.modrinth:earthify:${earthify_version}"
+    runtimeOnly "maven.modrinth:earthify:${earthify_version}"
+}</code></pre>
+</div>
+
+        <hr>
+
+        <h2 id="tags">3. Available Tags</h2>
+
+        <p>
+            The following tags can be used by your add-on to integrate with Earthify.
+        </p>
+
+        <table class="tags-table">
+
+            <tr>
+                <td><strong>Tag</strong></td>
+                <td><strong>Description</strong></td>
+            </tr>
+
+            <tr>
+                <td>ModItemTags.<span style="color:#ffff55;">BADGER_FOOD</span></td>
+                <td>Adds new food items for Badgers.</td>
+            </tr>
+
+            <tr>
+                <td>ModItemTags.<span style="color:#ffff55;">DUCK_FOOD</span></td>
+                <td>Adds new food items for Ducks.</td>
+            </tr>
+
+            <tr>
+                <td>ModBiomeTags.<span style="color:#55ffff;">HAS_SMALL_STABLE</span></td>
+                <td>Adds biomes where Small Stable structures can generate.</td>
+            </tr>
+
+            <tr>
+                <td>
+                    ModEntityTypeTags.
+                    <span style="color:#ff5555;">CAN_WALK_THROUGH_BUSH</span>
+                </td>
+                <td>
+                    Allows entities to walk through berry bushes without taking damage.
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    ModEntityTypeTags.
+                    <span style="color:#ff5555;">BESTIARY</span>
+                </td>
+                <td>
+                    Registers entities in the Bestiary and counts them for the
+                    "Animal Lover" advancement.
+                </td>
+            </tr>
+
+        </table>
+
+        <hr>
+
+        <h2>Example Usage</h2>
+
+        <div class="code-block">
+		<button class="copy-btn">Copy</button>
+<pre><code>tag(ModItemTags.BADGER_FOOD)
+    .add(Items.SALMON);
+
+tag(ModEntityTypeTags.BESTIARY)
+    .add(ModEntityTypes.MY_ANIMAL);</code></pre>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="../assets/js/back_to_top.js"></script>
+<script src="../assets/js/footer.js"></script>
+
+<button id="backToTop">↑</button>
+</body>
+
+</html>
