@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../fonts/minecraft.otf') format('opentype');
+}
+
+body {
+    margin: 0;
+    background: #202122;
+    color: #eaecf0;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 12px;
+}
+
+.header {
+    height: 60px;
+    background: #1f2328;
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.drops-table {
+    border-collapse: collapse;
+    width: 500px;
+    margin-top: 10px;
+}
+
+.drops-table td {
+    border: 1px solid #54595d;
+    padding: 8px;
+}
+
+.drops-table tr:nth-child(odd) {
+    background: #2a2e33;
+}
+
+.drops-table tr:nth-child(even) {
+    background: #32363c;
+}
+
+.drops-table img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    image-rendering: pixelated;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+}
+
+.search {
+    flex: 1;
+    max-width: 600px;
+    padding: 10px;
+    background: #111;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.sidebar {
+    width: 260px;
+    background: #2a2e33;
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: #7db4ff;
+    text-decoration: none;
+    padding: 6px 0;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.main {
+    flex: 1;
+    padding: 30px;
+    max-width: 1400px;
+}
+
+.article {
+    display: flex;
+    gap: 30px;
+}
+
+.text {
+    flex: 1;
+}
+
+.infobox {
+    flex: 0 0 300px;
+    width: 300px;
+    min-width: 300px;
+
+    background: #33422f;
+    border: 1px solid #5f7f57;
+    box-shadow: 0 0 0 1px #1b1b1b;
+
+    align-self: flex-start;
+    box-sizing: border-box;
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.infobox td {
+    padding: 8px;
+    border-top: 1px solid #5f7f57;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.infobox td:first-child {
+    font-weight: bold;
+    width: 40%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.ibox-title {
+    background: #0e6a3b;
+    border-bottom: 1px solid #0a4d2b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+a {
+    color: #80b3ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.img {
+    height: 220px;
+    background: #24301f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.img img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+h1,
+h2 {
+    border-bottom: 1px solid #54595d;
+    padding-bottom: 5px;
+}
+
+.mob-card {
+    width: 100px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-decoration: none;
+    color: white;
+
+    padding: 8px;
+
+    text-align: center;
+}
+
+.mob-card:hover {
+    background: none;
+    border: none;
+}
+
+.mob-card img {
+    width: 64px;
+    height: 64px;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    margin-bottom: 6px;
+}
+
+.mob-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.mob-name {
+    display: block;
+    margin-top: 6px;
+    color: #36c;
+}
+
+.mob-card:hover .mob-name {
+    color: #80b3ff;
+    text-decoration: underline;
+}
+
+.tag-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #7dcfff;
+}
+
+@media (max-width: 900px) {
+    .article,
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: auto;
+        min-height: auto;
+    }
+
+    .infobox {
+        width: 100%;
+    }
+}
