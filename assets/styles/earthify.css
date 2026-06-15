@@ -384,6 +384,24 @@ h2 {
     background: #0e6a3b;
 }
 
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: -12px -16px 12px -16px;
+    padding: 8px 12px;
+
+    background: #2a2e33;
+    border-bottom: 1px solid #54595d;
+
+    border-radius: 8px 8px 0 0;
+
+    font-size: 11px;
+    color: #e6e6e6;
+	font-weight: bold;
+}
+
 #backToTop.visible {
     opacity: 1;
     visibility: visible;
