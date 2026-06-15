@@ -3,6 +3,11 @@
     src: url('../fonts/minecraft.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../fonts/JetBrains.ttf') format('truetype');
+}
+
 body {
     margin: 0;
     background: #202122;
@@ -97,9 +102,9 @@ body {
 }
 
 .code-block code {
-    font-family: Consolas, Monaco, monospace;
-    font-size: 16px;
     color: #e6e6e6;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 13px;
 }
 
 .table-wrapper {
