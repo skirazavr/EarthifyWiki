@@ -47,11 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     ).href
                     : card.querySelector("img")?.src;
 
-                const description =
+                let description =
                     doc.querySelector(".text p")
                         ?.textContent
                         ?.trim()
                     || "No description available.";
+
+                if (description.length > 180) {
+                    description =
+                        description.substring(0, 180) + "...";
+                }
 
                 const data = {
                     title,
@@ -76,11 +81,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.addEventListener("mousemove", e => {
 
-            preview.style.left =
-                `${e.pageX + 15}px`;
+            let x = e.pageX + 20;
+            let y = e.pageY + 20;
 
-            preview.style.top =
-                `${e.pageY + 15}px`;
+            const rect =
+                preview.getBoundingClientRect();
+
+            if (x + rect.width > window.scrollX + window.innerWidth) {
+                x = e.pageX - rect.width - 20;
+            }
+
+            if (y + rect.height > window.scrollY + window.innerHeight) {
+                y = e.pageY - rect.height - 20;
+            }
+
+            preview.style.left = `${x}px`;
+            preview.style.top = `${y}px`;
 
         });
 
@@ -95,15 +111,24 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPreview(data) {
 
         preview.innerHTML = `
-            <div class="preview-image">
-                <img src="${data.image}" alt="${data.title}">
-            </div>
+            <div class="preview-layout">
 
-            <div class="preview-title">
-                ${data.title}
-            </div>
-            <div class="preview-description">
-                ${data.description}
+                <div class="preview-text">
+
+                    <div class="preview-title">
+                        ${data.title}
+                    </div>
+
+                    <div class="preview-description">
+                        ${data.description}
+                    </div>
+
+                </div>
+
+                <div class="preview-image">
+                    <img src="${data.image}" alt="${data.title}">
+                </div>
+
             </div>
         `;
 
