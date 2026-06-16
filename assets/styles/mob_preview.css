@@ -1,0 +1,42 @@
+.mob-preview {
+    display: none;
+
+    position: absolute;
+
+    width: 280px;
+
+    background: #2a2e33;
+    border: 1px solid #54595d;
+    border-radius: 8px;
+
+    padding: 12px;
+
+    z-index: 999999;
+
+    pointer-events: none;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.mob-preview img {
+    width: 100%;
+    max-height: 140px;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    margin-bottom: 10px;
+}
+
+.preview-title {
+    font-size: 14px;
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+.preview-description {
+    color: #eaecf0;
+
+    line-height: 1.4;
+}
