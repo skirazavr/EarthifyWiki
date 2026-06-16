@@ -75,6 +75,10 @@
     .code-block {
         padding: 10px;
     }
+	
+	.code-header {
+        margin: -10px -10px 10px -10px;
+    }
 
     .code-block code {
         font-size: 12px;
