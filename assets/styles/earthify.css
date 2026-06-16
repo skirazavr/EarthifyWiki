@@ -371,5 +371,54 @@ h2 {
 
     .infobox {
         width: 100%;
+        min-width: 0;
+    }
+
+    .main {
+        padding: 15px 20px;
+        box-sizing: border-box;
+    }
+
+    .tags-table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .tags-table td {
+        padding: 6px 12px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+    .tags-table td:first-child {
+        width: 50%;
+    }
+
+    .tags-table td:last-child {
+        width: 50%;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .drops-table {
+        width: 100%;
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    .drops-table td {
+        padding: 6px 12px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+    .opensource-popup {
+        display: none;
     }
 }
