@@ -6,11 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cache = new Map();
 
-    document.querySelectorAll(".mob-card, .biome-card, .structure-card, .item-card").forEach(card => {
+    document.querySelectorAll(
+        '.mob-card, .main .text a[href$=".html"]'
+    ).forEach(card => {
 
         card.addEventListener("mouseenter", async () => {
 
             const url = card.href;
+
+            if (!url) {
+                return;
+            }
 
             if (cache.has(url)) {
                 renderPreview(cache.get(url));
@@ -35,22 +41,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 const title =
                     doc.querySelector("h1")?.textContent.trim()
                     || card.querySelector(".mob-name")?.textContent
+                    || card.textContent.trim()
                     || "Unknown";
 
                 const imgElement =
-                    doc.querySelector(".img img");
+                    doc.querySelector(".img img")
+                    || doc.querySelector(".infobox .img img")
+                    || doc.querySelector(".infobox img");
 
                 const image = imgElement
                     ? new URL(
                         imgElement.getAttribute("src"),
                         url
                     ).href
-                    : card.querySelector("img")?.src;
+                    : null;
+
+                const descriptionElement =
+                    doc.querySelector(".text p")
+                    || doc.querySelector("main p")
+                    || doc.querySelector("p");
 
                 let description =
-                    doc.querySelector(".text p")
-                        ?.textContent
-                        ?.trim()
+                    descriptionElement?.textContent?.trim()
                     || "No description available.";
 
                 if (description.length > 180) {
@@ -87,11 +99,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const rect =
                 preview.getBoundingClientRect();
 
-            if (x + rect.width > window.scrollX + window.innerWidth) {
+            if (
+                x + rect.width >
+                window.scrollX + window.innerWidth
+            ) {
                 x = e.pageX - rect.width - 20;
             }
 
-            if (y + rect.height > window.scrollY + window.innerHeight) {
+            if (
+                y + rect.height >
+                window.scrollY + window.innerHeight
+            ) {
                 y = e.pageY - rect.height - 20;
             }
 
@@ -125,9 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 </div>
 
-                <div class="preview-image">
-                    <img src="${data.image}" alt="${data.title}">
-                </div>
+                ${data.image ? `
+                    <div class="preview-image">
+                        <img src="${data.image}" alt="${data.title}">
+                    </div>
+                ` : ""}
 
             </div>
         `;
