@@ -95,7 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPreview(data) {
 
         preview.innerHTML = `
-            <img src="${data.image}" alt="${data.title}">
+            <div class="preview-image">
+                <img src="${data.image}" alt="${data.title}">
+            </div>
+
             <div class="preview-title">
                 ${data.title}
             </div>

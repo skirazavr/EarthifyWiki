@@ -18,14 +18,29 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-.mob-preview img {
-    width: 100%;
-    max-height: 140px;
+.preview-image {
+    height: 140px;
+
+    background: #24301f;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+    margin-bottom: 10px;
+
+    border-radius: 4px;
+}
+
+.preview-image img {
+    max-width: 80%;
+    max-height: 80%;
 
     object-fit: contain;
     image-rendering: pixelated;
-
-    margin-bottom: 10px;
 }
 
 .preview-title {
