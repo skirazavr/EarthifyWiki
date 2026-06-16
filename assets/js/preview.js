@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const preview = document.createElement("div");
-    preview.className = "mob-preview";
+    preview.className = "wiki-preview";
 
     document.body.appendChild(preview);
 
@@ -70,10 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         description.substring(0, 180) + "...";
                 }
 
+                const pageType =
+                    url.includes("/biomes/") ? "biome" :
+                    url.includes("/structures/") ? "structure" :
+                    url.includes("/items/") ? "item" :
+                    "mob";
+
                 const data = {
                     title,
                     image,
-                    description
+                    description,
+                    pageType
                 };
 
                 cache.set(url, data);
@@ -144,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 ${data.image ? `
-                    <div class="preview-image">
+                    <div class="preview-image ${data.pageType}">
                         <img src="${data.image}" alt="${data.title}">
                     </div>
                 ` : ""}

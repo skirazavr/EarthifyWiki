@@ -1,4 +1,4 @@
-.mob-preview {
+.wiki-preview {
     display: none;
 
     position: absolute;
@@ -22,7 +22,7 @@
 
 .preview-layout {
     display: flex;
-    min-height: 180px;
+    min-height: 220px;
 }
 
 .preview-text {
@@ -45,7 +45,6 @@
 
 .preview-description {
     color: #eaecf0;
-
     line-height: 1.5;
 
     overflow: hidden;
@@ -68,10 +67,30 @@
     border-left: 1px solid #54595d;
 }
 
+/* По умолчанию как для мобов */
 .preview-image img {
     max-width: 100%;
-    max-height: 160px;
+    max-height: 190px;
 
     object-fit: contain;
     image-rendering: pixelated;
+}
+
+/* Биомы и структуры */
+.preview-image.biome,
+.preview-image.structure {
+    padding: 0;
+    background: transparent;
+}
+
+.preview-image.biome img,
+.preview-image.structure img {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: cover;
+    image-rendering: auto;
 }
