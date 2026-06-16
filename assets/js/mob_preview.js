@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
 
                 const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
                 const html = await response.text();
 
                 const doc = new DOMParser().parseFromString(
@@ -28,36 +33,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 const title =
-                    doc.querySelector("h1")?.textContent?.trim()
+                    doc.querySelector("h1")?.textContent.trim()
                     || card.querySelector(".mob-name")?.textContent
                     || "Unknown";
 
-                const image =
-                    doc.querySelector(".img img")?.getAttribute("src")
-                    || card.querySelector("img")?.src;
+                const imgElement =
+                    doc.querySelector(".img img");
 
-                let description = "No description available.";
+                const image = imgElement
+                    ? new URL(
+                        imgElement.getAttribute("src"),
+                        url
+                    ).href
+                    : card.querySelector("img")?.src;
 
-                const h1 = doc.querySelector("h1");
-
-                if (h1) {
-
-                    let element = h1.nextElementSibling;
-
-                    while (element) {
-
-                        if (
-                            element.tagName === "P" &&
-                            element.textContent.trim().length > 0
-                        ) {
-                            description =
-                                element.textContent.trim();
-                            break;
-                        }
-
-                        element = element.nextElementSibling;
-                    }
-                }
+                const description =
+                    doc.querySelector(".text p")
+                        ?.textContent
+                        ?.trim()
+                    || "No description available.";
 
                 const data = {
                     title,
@@ -70,10 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 renderPreview(data);
 
             } catch (error) {
+
                 console.error(
                     "Preview loading failed:",
                     error
                 );
+
             }
 
         });
@@ -99,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPreview(data) {
 
         preview.innerHTML = `
-            <img src="${data.image}" alt="">
+            <img src="${data.image}" alt="${data.title}">
             <div class="preview-title">
                 ${data.title}
             </div>
