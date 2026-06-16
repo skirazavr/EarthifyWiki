@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", async () => {
 
             const code =
-                button.parentElement.querySelector("code");
+			    button.closest(".code-block").querySelector("code");
 
             await navigator.clipboard.writeText(
                 code.textContent
