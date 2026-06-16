@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const preview = document.createElement("div");
+    if (window.innerWidth <= 768) {
+        return;
+    }
+			
+	const preview = document.createElement("div");
     preview.className = "wiki-preview";
 
     document.body.appendChild(preview);

@@ -94,3 +94,9 @@
     object-fit: cover;
     image-rendering: auto;
 }
+
+@media (max-width: 768px) {
+    .wiki-preview {
+        display: none !important;
+    }
+}
