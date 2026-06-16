@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cache = new Map();
 
     document.querySelectorAll(
-        '.mob-card, .main .text a[href$=".html"]'
+        '.mob-card, .main a[href$=".html"]'
     ).forEach(card => {
 
         card.addEventListener("mouseenter", async () => {
