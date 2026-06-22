@@ -192,20 +192,20 @@ tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
 <span class="code-keyword">import</span> net.minecraft.world.entity.ai.attributes.AttributeModifier;
 <span class="code-keyword">import</span> net.minecraft.world.entity.ai.attributes.Attributes;
 
-<span class="code-keyword">import</span> com.skirazavr.earthify.api.IModExtension;
-<span class="code-keyword">import</span> com.skirazavr.earthify.api.extension.<span class="code-annotation">EarthifyExtension</span>;
-<span class="code-keyword">import</span> com.skirazavr.earthify.api.registration.IMixtureAttributeRegistration;
+<span class="code-keyword">import</span> com.skirazavr.earthify.api.<span class="code-annotation">EarthifyExtension</span>;
+<span class="code-keyword">import</span> com.skirazavr.earthify.api.impl.IModExtension;
+<span class="code-keyword">import</span> com.skirazavr.earthify.api.registration.IAttributeRegistration;
 
 <span class="code-annotation">@EarthifyExtension</span>
 <span class="code-keyword">public class</span> ExampleExtension <span class="code-keyword">implements</span> IModExtension {
 
     <span class="code-annotation">@Override</span>
-    <span class="code-keyword">public</span> Identifier <span class="code-method">getExtensionUid</span>() {
+    <span class="code-keyword">public</span> Identifier <span class="code-method">getExtensionID</span>() {
         <span class="code-keyword">return</span> Identifier.fromNamespaceAndPath(<span class="code-string">"mod_id"</span>, <span class="code-string">"extension_name"</span>);
     }
 
     <span class="code-annotation">@Override</span>
-    <span class="code-keyword">public void</span> <span class="code-method">registerMixtureAttributes</span>(IMixtureAttributeRegistration registration) {
+    <span class="code-keyword">public void</span> <span class="code-method">registerAttributes</span>(IAttributeRegistration registration) {
         registration.add(Attributes.<span class="code-constant">MOVEMENT_SPEED</span>, Identifier.fromNamespaceAndPath(<span class="code-string">"mod_id"</span>, <span class="code-string">"speed"</span>), <span class="code-number">0.15</span>,
             AttributeModifier.Operation.<span class="code-constant">ADD_MULTIPLIED_TOTAL</span>);
     }
@@ -227,8 +227,8 @@ tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
             </tr>
 
             <tr>
-                <td>Mixture Attribute Modifiers</td>
-                <td>Add additional attribute modifiers to Mixture to enhance its power.</td>
+                <td>Attribute Modifiers</td>
+                <td>Add additional attribute modifiers to Mixture (for example) to enhance its power.</td>
             </tr>
 
         </table>
