@@ -71,6 +71,42 @@
     background: #0e6a3b;
 }
 
+.code-keyword {
+    color: #CF8E6D;
+}
+
+.code-annotation {
+    color: #B3AE60;
+}
+
+.code-type {
+    color: #56A8F5;
+}
+
+.code-method {
+    color: #74C0FC;
+}
+
+.code-string {
+    color: #6AAB73;
+}
+
+.code-number {
+    color: #2AACB8;
+}
+
+.code-constant {
+    color: #C77DBB;
+}
+
+.code-variable {
+    color: #BCBEC4;
+}
+
+.code-package {
+    color: #BCBEC4;
+}
+
 @media (max-width: 1024px) {
     .code-block {
         padding: 10px;
