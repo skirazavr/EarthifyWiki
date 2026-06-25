@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     popup.className = "opensource-popup";
     popup.innerHTML = `
-        Earthify Wiki is an open-sourced project.
-        <a href="https://github.com/Skirazavr/Earthify_Wiki" target="_blank">
+        Earthify is an open-sourced project.
+        <a href="https://github.com/Skirazavr/Earthify" target="_blank">
             View source on GitHub
         </a>
     `;
