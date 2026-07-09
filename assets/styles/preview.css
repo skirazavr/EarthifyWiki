@@ -65,9 +65,10 @@
     box-sizing: border-box;
 
     border-left: 1px solid #54595d;
+	
+	overflow: hidden;
 }
 
-/* По умолчанию как для мобов */
 .preview-image img {
     max-width: 100%;
     max-height: 190px;
@@ -76,7 +77,6 @@
     image-rendering: pixelated;
 }
 
-/* Биомы и структуры */
 .preview-image.biome,
 .preview-image.structure {
     padding: 0;
@@ -92,6 +92,7 @@
     max-height: none;
 
     object-fit: cover;
+	object-position: center;
     image-rendering: auto;
 }
 
