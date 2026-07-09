@@ -48,8 +48,8 @@
 }
 
 .preview-image {
-    width: 180px;
-    min-width: 180px;
+    width: 240px;
+    min-width: 240px;
     height: 220px;
 
     overflow: hidden;
@@ -74,9 +74,9 @@
 
     display: block;
 
-    object-fit: cover;
-    object-position: 50% 35%;
-    image-rendering: auto;
+    object-fit: contain;
+    object-position: center;
+    image-rendering: pixelated;
 }
 
 .preview-image.mob,
