@@ -76,9 +76,9 @@
 
     display: block;
 
-    object-fit: contain;
-    object-position: center;
-    image-rendering: pixelated;
+    object-fit: cover;
+    object-position: 50% 35%;
+    image-rendering: auto;
 }
 
 .preview-image.biome,
