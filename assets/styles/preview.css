@@ -4,18 +4,15 @@
     position: absolute;
 
     width: 420px;
+    min-height: 220px;
 
     background: #2a2e33;
     border: 1px solid #54595d;
     border-radius: 8px;
 
-    padding: 0;
-
-    z-index: 999999;
-
-    pointer-events: none;
-
     overflow: hidden;
+    pointer-events: none;
+    z-index: 999999;
 
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
@@ -29,18 +26,18 @@
     flex: 1;
 
     padding: 14px;
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
 }
 
 .preview-title {
+    margin-bottom: 10px;
+
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
-
-    color: white;
-
-    margin-bottom: 10px;
 }
 
 .preview-description {
@@ -53,34 +50,41 @@
 .preview-image {
     width: 180px;
     min-width: 180px;
+    height: 220px;
 
+    overflow: hidden;
+
+    border-left: 1px solid #54595d;
     background: #24301f;
 
+    box-sizing: border-box;
+}
+
+.preview-image.mob,
+.preview-image.item {
     display: flex;
     align-items: center;
     justify-content: center;
 
     padding: 15px;
-
-    box-sizing: border-box;
-
-    border-left: 1px solid #54595d;
-	
-	overflow: hidden;
 }
 
-.preview-image img {
-    max-width: 100%;
-    max-height: 190px;
+.preview-image.mob img,
+.preview-image.item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
 
     object-fit: contain;
+    object-position: center;
     image-rendering: pixelated;
 }
 
 .preview-image.biome,
 .preview-image.structure {
     padding: 0;
-    background: transparent;
+    background: #000;
 }
 
 .preview-image.biome img,
@@ -88,11 +92,10 @@
     width: 100%;
     height: 100%;
 
-    max-width: none;
-    max-height: none;
+    display: block;
 
     object-fit: cover;
-	object-position: center;
+	object-position: 50% 35%;
     image-rendering: auto;
 }
 
