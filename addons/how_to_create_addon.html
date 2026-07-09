@@ -86,8 +86,7 @@
         <button class="copy-btn">Copy</button>
     </div>
 <pre><code>dependencies {
-    compileOnly "maven.modrinth:earthify:${earthify_version}"
-    runtimeOnly "maven.modrinth:earthify:${earthify_version}"
+    implementation "maven.modrinth:earthify:${earthify_version}"
 }</code></pre>
 </div>
 
@@ -217,7 +216,7 @@ tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
 
     <span class="code-annotation">@Override</span>
     <span class="code-keyword">public void</span> <span class="code-method">registerAttributes</span>(IAttributeRegistration registration) {
-        registration.add(Attributes.<span class="code-constant">MOVEMENT_SPEED</span>, Identifier.fromNamespaceAndPath(<span class="code-string">"mod_id"</span>, <span class="code-string">"speed"</span>), <span class="code-number">0.15</span>,
+        registration.forItem(ModItems.<span class="code-constant">MIXTURE</span>).add(Attributes.<span class="code-constant">MOVEMENT_SPEED</span>, <span class="code-number">0.15</span>,
             AttributeModifier.Operation.<span class="code-constant">ADD_MULTIPLIED_TOTAL</span>);
     }
 }</code></pre>

@@ -193,19 +193,17 @@ a:hover {
 
 .img {
     height: 220px;
+    overflow: hidden;
     background: #24301f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .img img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-    image-rendering: pixelated;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+    display: block;
 }
 
 h1,
