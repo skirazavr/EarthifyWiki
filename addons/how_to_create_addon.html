@@ -1,29 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#11763b">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#11763b" />
     <title>How to create an Add-on - Earthify Wiki</title>
 
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    <link rel="stylesheet" href="../assets/styles/earthify.css">
-	<link rel="stylesheet" href="../assets/styles/code.css">
-</head>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../assets/styles/earthify.css" />
+    <link rel="stylesheet" href="../assets/styles/code.css" />
+  </head>
 
-<body>
-
-<header class="header">
-    <div class="brand">
-        <img src="../assets/images/logo.png" alt="Earthify Logo" class="logo">
+  <body>
+    <header class="header">
+      <div class="brand">
+        <img src="../assets/images/logo.png" alt="Earthify Logo" class="logo" />
         Earthify Wiki
-    </div>
-</header>
+      </div>
+    </header>
 
-<div class="wrapper">
-
-    <nav class="sidebar">
+    <div class="wrapper">
+      <nav class="sidebar">
         <h3>Navigation</h3>
 
         <a href="../main.html">Main Page</a>
@@ -31,31 +28,31 @@
         <a href="#dependency">Dependency</a>
         <a href="#tags">Available Tags</a>
         <a href="#extensions">Plugin Extensions API</a>
-    </nav>
+      </nav>
 
-    <main class="main">
-
+      <main class="main">
         <h1>How to create an Add-on (for Minecraft 26.2+ versions)</h1>
 
         <p>
-            Earthify provides several tags that can be used by external add-ons.
-            Before using them, add the Earthify Maven repository to your project.
+          Earthify provides several tags that can be used by external add-ons.
+          Before using them, add the Earthify Maven repository to your project.
         </p>
 
-        <hr>
+        <hr />
 
         <h2 id="repository">1. Add Earthify Repository</h2>
 
         <p>
-            Add the Modrinth Maven repository inside your <span style="color:#a0a0a0;">build.gradle</span>:
+          Add the Modrinth Maven repository inside your
+          <span style="color: #a0a0a0">build.gradle</span>:
         </p>
 
         <div class="code-block">
-		<div class="code-header">
-        <span>Gradle</span>
-        <button class="copy-btn">Copy</button>
-    </div>
-<pre><code>repositories {
+          <div class="code-header">
+            <span>Gradle</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre><code>repositories {
     maven {
         name = "Modrinth"
         url = "https://api.modrinth.com/maven"
@@ -63,150 +60,158 @@
 }</code></pre>
         </div>
 
-        <hr>
+        <hr />
 
         <h2 id="dependency">2. Add Dependency</h2>
-		
-		<p>
-            Add Earthify as a runtime dependency:
-        </p>
 
-<h3><span style="color:#a0a0a0;">gradle.properties</span></h3>
+        <p>Add Earthify as a runtime dependency:</p>
 
-<div class="code-block">
-<button class="copy-btn">Copy</button>
-<pre><code><span style="color:#ffc66d;">earthify_version</span><span style="color:#a9b7c6;">=</span><span style="color:#8dc891;">1.1.0</span> # Example version</code></pre>
-</div>
+        <h3><span style="color: #a0a0a0">gradle.properties</span></h3>
 
-<h3><span style="color:#a0a0a0;">build.gradle</span></h3>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code><span style="color:#ffc66d;">earthify_version</span><span style="color:#a9b7c6;">=</span><span style="color:#8dc891;">1.1.0</span> # Example version</code></pre>
+        </div>
 
-<div class="code-block">
-<div class="code-header">
-        <span>Gradle</span>
-        <button class="copy-btn">Copy</button>
-    </div>
-<pre><code>dependencies {
+        <h3><span style="color: #a0a0a0">build.gradle</span></h3>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span>Gradle</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre><code>dependencies {
     implementation "maven.modrinth:earthify:${earthify_version}"
 }</code></pre>
-</div>
+        </div>
 
-        <hr>
+        <hr />
 
         <h2 id="tags">3. Available Tags</h2>
 
         <p>
-            The following tags can be used by your add-on to integrate with Earthify.
+          The following tags can be used by your add-on to integrate with
+          Earthify.
         </p>
 
         <table class="tags-table">
+          <tr>
+            <td><strong>Tag</strong></td>
+            <td><strong>Description</strong></td>
+          </tr>
 
-            <tr>
-                <td><strong>Tag</strong></td>
-                <td><strong>Description</strong></td>
-            </tr>
-			
-			<tr>
-                <td>ModItemTags.<span style="color:#b392f0;">BERRIES</span></td>
-                <td>Adds berries. Will be used as food for Raccoons (at least now)</td>
-            </tr>
+          <tr>
+            <td>ModItemTags.<span style="color: #b392f0">BERRIES</span></td>
+            <td>
+              Adds berries. Will be used as food for Raccoons (at least now)
+            </td>
+          </tr>
 
-            <tr>
-                <td>ModItemTags.<span style="color:#b392f0;">BADGER_FOOD</span></td>
-                <td>Adds new food items for Badgers.</td>
-            </tr>
+          <tr>
+            <td>ModItemTags.<span style="color: #b392f0">BADGER_FOOD</span></td>
+            <td>Adds new food items for Badgers.</td>
+          </tr>
 
-            <tr>
-                <td>ModItemTags.<span style="color:#b392f0;">DUCK_FOOD</span></td>
-                <td>Adds new food items for Ducks.</td>
-            </tr>
-			
-			<tr>
-                <td>ModItemTags.<span style="color:#b392f0;">PENGUIN_FOOD</span></td>
-                <td>Adds new food items for Penguins.</td>
-            </tr>
-			
-			<tr>
-                <td>ModItemTags.<span style="color:#b392f0;">CAPYBARA_FOOD</span></td>
-                <td>Adds new food items for Capybaras.</td>
-            </tr>
-			
-			<tr>
-                <td>ModItemTags.<span style="color:#b392f0;">RACCOON_FOOD</span></td>
-                <td>Adds new food items for Raccoons.</td>
-            </tr>
+          <tr>
+            <td>ModItemTags.<span style="color: #b392f0">DUCK_FOOD</span></td>
+            <td>Adds new food items for Ducks.</td>
+          </tr>
 
-            <tr>
-                <td>ModBiomeTags.<span style="color:#b392f0;">HAS_SMALL_STABLE</span></td>
-                <td>Adds biomes where Small Stable structures can generate.</td>
-            </tr>
+          <tr>
+            <td>
+              ModItemTags.<span style="color: #b392f0">PENGUIN_FOOD</span>
+            </td>
+            <td>Adds new food items for Penguins.</td>
+          </tr>
 
-            <tr>
-                <td>
-                    ModEntityTypeTags.<span style="color:#b392f0;">CAN_WALK_THROUGH_BUSH</span>
-                </td>
-                <td>
-                    Allows entities to walk through berry bushes without taking damage.
-                </td>
-            </tr>
+          <tr>
+            <td>
+              ModItemTags.<span style="color: #b392f0">CAPYBARA_FOOD</span>
+            </td>
+            <td>Adds new food items for Capybaras.</td>
+          </tr>
 
-            <tr>
-                <td>
-                    ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>
-                </td>
-                <td>
-                    Registers entities in the Bestiary and counts them for the
-                    "Animal Lover" advancement.
-                </td>
-            </tr>
+          <tr>
+            <td>
+              ModItemTags.<span style="color: #b392f0">RACCOON_FOOD</span>
+            </td>
+            <td>Adds new food items for Raccoons.</td>
+          </tr>
 
+          <tr>
+            <td>
+              ModBiomeTags.<span style="color: #b392f0">HAS_SMALL_STABLE</span>
+            </td>
+            <td>Adds biomes where Small Stable structures can generate.</td>
+          </tr>
+
+          <tr>
+            <td>
+              ModEntityTypeTags.<span style="color: #b392f0"
+                >CAN_WALK_THROUGH_BUSH</span
+              >
+            </td>
+            <td>
+              Allows entities to walk through berry bushes without taking
+              damage.
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              ModEntityTypeTags.<span style="color: #b392f0">BESTIARY</span>
+            </td>
+            <td>
+              Registers entities in the Bestiary and counts them for the "Animal
+              Lover" advancement.
+            </td>
+          </tr>
         </table>
-
 
         <h2>Example Usage</h2>
 
         <div class="code-block">
-		<div class="code-header">
-        <span>Java</span>
-        <button class="copy-btn">Copy</button>
-    </div>
-<pre><code>tag(ModItemTags.<span style="color:#b392f0;">BADGER_FOOD</span>)
+          <div class="code-header">
+            <span>Java</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre><code>tag(ModItemTags.<span style="color:#b392f0;">BADGER_FOOD</span>)
     .add(ItemIds.<span style="color:#b392f0;">SALMON</span>);
 
 tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
     .add(ModEntityTypeIds.<span style="color:#b392f0;">MY_ANIMAL</span>);</code></pre>
         </div>
 
-        <hr>
+        <hr />
 
         <h2 id="extensions">4. Plugin Extensions API</h2>
 
         <p>
-            Earthify includes an extension system that allows add-ons to inject
-            additional functionality without modifying the mod itself.
+          Earthify includes an extension system that allows add-ons to inject
+          additional functionality without modifying the mod itself.
         </p>
 
-        <p>
-            Loaded extensions can be viewed using:
-        </p>
+        <p>Loaded extensions can be viewed using:</p>
 
         <div class="code-block">
-            <div class="code-header">
-                <span>Command</span>
-                <button class="copy-btn">Copy</button>
-            </div>
-<pre><code>/earthify extensions</code></pre>
+          <div class="code-header">
+            <span>Command</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre><code>/earthify extensions</code></pre>
         </div>
 
         <p>
-            The command lists all loaded extensions and their unique identifiers. For example:
+          The command lists all loaded extensions and their unique identifiers.
+          For example:
         </p>
 
         <div class="code-block">
-            <div class="code-header">
-                <span>Java</span>
-                <button class="copy-btn">Copy</button>
-            </div>
-<pre><code><span class="code-annotation">@EarthifyExtension</span>
+          <div class="code-header">
+            <span>Java</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre><code><span class="code-annotation">@EarthifyExtension</span>
 <span class="code-keyword">public class</span> ExampleExtension <span class="code-keyword">implements</span> IModExtension {
 
     <span class="code-annotation">@Override</span>
@@ -225,33 +230,31 @@ tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
         <h3>Current Capabilities</h3>
 
         <p>
-            The extension API is still under development. Currently, extensions
-            are mainly intended for attribute customization.
+          The extension API is still under development. Currently, extensions
+          are mainly intended for attribute customization.
         </p>
 
         <table class="tags-table">
+          <tr>
+            <td><strong>Feature</strong></td>
+            <td><strong>Description</strong></td>
+          </tr>
 
-            <tr>
-                <td><strong>Feature</strong></td>
-                <td><strong>Description</strong></td>
-            </tr>
-
-            <tr>
-                <td>Attribute Modifiers</td>
-                <td>Add additional attribute modifiers to Mixture (for example) to enhance its power.</td>
-            </tr>
-
+          <tr>
+            <td>Attribute Modifiers</td>
+            <td>
+              Add additional attribute modifiers to Mixture (for example) to
+              enhance its power.
+            </td>
+          </tr>
         </table>
+      </main>
+    </div>
 
-    </main>
+    <script src="../assets/js/back_to_top.js"></script>
+    <script src="../assets/js/footer.js"></script>
+    <script src="../assets/js/copy.js"></script>
 
-</div>
-
-<script src="../assets/js/back_to_top.js"></script>
-<script src="../assets/js/footer.js"></script>
-<script src="../assets/js/copy.js"></script>
-
-<button id="backToTop">↑</button>
-</body>
-
+    <button id="backToTop">↑</button>
+  </body>
 </html>
