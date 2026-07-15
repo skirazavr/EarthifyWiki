@@ -1,0 +1,5 @@
+.recipe-image img {
+    width: 384px;
+    height: 198px;
+    image-rendering: pixelated;
+}
