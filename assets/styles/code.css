@@ -3,6 +3,22 @@
     src: url('../fonts/JetBrains.ttf') format('truetype');
 }
 
+:not(pre) > code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2em;
+    line-height: 1.4;
+
+    color: #e6e6e6;
+    background: #2a2e33;
+
+    border: 1px solid #54595d;
+    border-radius: 5px;
+
+    padding: 3px 7px;
+
+    vertical-align: middle;
+}
+
 .code-block {
     background: #1e1e1e;
     border: 1px solid #54595d;

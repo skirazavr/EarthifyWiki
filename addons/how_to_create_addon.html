@@ -28,6 +28,7 @@
         <a href="#dependency">Dependency</a>
         <a href="#tags">Available Tags</a>
         <a href="#extensions">Plugin Extensions API</a>
+        <a href="#extractor">Extractor Recipes</a>
     </nav>
 
     <main class="main">
@@ -251,6 +252,87 @@ tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
                 </td>
             </tr>
         </table>
+
+        <hr/>
+
+        <h2 id="extractor">5. Extractor Recipes</h2>
+
+        <p>
+            Earthify provides a recipe builder for the <strong>Extractor</strong>,
+            allowing add-ons to register extraction recipes through data generation.
+        </p>
+
+        <p>
+            The Extractor can extract items from blocks or other items. Extractor
+            recipes are fully compatible with JEI, which displays the recipe,
+            extraction duration, experience, and additional recipe information.
+            They also integrate with Minecraft's Recipe Book, where recipes are
+            automatically unlocked and a recipe toast is shown the first time the
+            player obtains an item or block that can be extracted by the Extractor.
+        </p>
+
+        <p>
+            Example:
+        </p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>Java</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>ExtractorRecipeBuilder.<em>extractFrom</em>(Items.<span
+                    class="code-constant"><em>PALE_OAK_LOG</em></span>).to(Items.<span
+                    class="code-constant"><em>RESIN_CLUMP</em></span>).extractionTime(<span
+                    class="code-number">300</span>).experience(<span
+                    class="code-number">1F</span>)
+    .unlockedBy(<em>getHasName</em>(Items.<span class="code-constant"><em>PALE_OAK_LOG</em></span>), has(Items.<span
+                        class="code-constant"><em>PALE_OAK_LOG</em></span>)).save(output);</code></pre>
+        </div>
+
+        <p>
+            Or just look for <code>EarthifyRecipeProvider</code> for needed <code>extractor(...)</code> helper.
+        </p>
+
+        <p>Example of a generated JSON:</p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>JSON</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>{
+  "type": "earthify:extractor",
+  "experience": 1.0,
+  "ingredient": "minecraft:pale_oak_log",
+  "extraction_time": 300,
+  "result": {
+    "id": "minecraft:resin_clump"
+  }
+}</code></pre>
+        </div>
+
+        <h3>Features</h3>
+
+        <h4>JEI Support</h4>
+        <p>
+            Recipes are automatically displayed in JEI with the extraction duration
+            and additional recipe information.
+        </p>
+
+        <h4>Recipe Toasts</h4>
+        <p>
+            When the player obtains an item that can be extracted in the Extractor for
+            the first time, a recipe toast is displayed to indicate that a new
+            extraction recipe has been discovered.
+        </p>
+
+        <h4>Custom Extracting Time</h4>
+        <p>
+            Recipes can define a custom extraction duration using
+            <code>.extractionTime(<span class="code-number">ticks</span>)</code>. If not specified, the default
+            extraction
+            time is <strong>1200 ticks</strong> (60 seconds).
+        </p>
     </main>
 </div>
 
