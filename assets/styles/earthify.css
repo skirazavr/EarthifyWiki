@@ -126,6 +126,7 @@ body {
 
 .main {
     flex: 1;
+    min-width: 0;
     padding: 30px 30px 60px;
     max-width: 1400px;
 }

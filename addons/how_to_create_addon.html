@@ -148,14 +148,14 @@
             </tr>
 
             <tr>
-                <td>
+                <td id="can_walk_through_bush">
                     ModEntityTypeTags.<span style="color: #b392f0"
                 >CAN_WALK_THROUGH_BUSH</span
                 >
                 </td>
                 <td>
                     Allows entities to walk through berry bushes without taking
-                    damage.
+                    damage. (Removed at <a href="../versions.html#1.1.5">1.1.5</a>)
                 </td>
             </tr>
 
@@ -280,13 +280,14 @@ tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
                 <span>Java</span>
                 <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>ExtractorRecipeBuilder.<em>extractFrom</em>(Items.<span
-                    class="code-constant"><em>PALE_OAK_LOG</em></span>).to(Items.<span
-                    class="code-constant"><em>RESIN_CLUMP</em></span>).extractionTime(<span
+            <pre><code>ExtractorRecipeBuilder.<em>extractFrom</em>(ModItems.<span
+                    class="code-constant"><em>STRIPPED_ROSEWOOD_LOG</em></span>).to(ModItems.<span
+                    class="code-constant"><em>ROSEWOOD_OIL</em></span>).extractionTime(<span
                     class="code-number">300</span>).experience(<span
-                    class="code-number">1F</span>)
-    .unlockedBy(<em>getHasName</em>(Items.<span class="code-constant"><em>PALE_OAK_LOG</em></span>), has(Items.<span
-                        class="code-constant"><em>PALE_OAK_LOG</em></span>)).save(output);</code></pre>
+                    class="code-number">1F</span>).category(ExtractorBookCategory.<span
+                    class="code-constant"><em>OILS</em></span>)
+    .unlockedBy(<em>getHasName</em>(ModItems.<span class="code-constant"><em>STRIPPED_ROSEWOOD_LOG</em></span>), has(ModItems.<span
+                        class="code-constant"><em>STRIPPED_ROSEWOOD_LOG</em></span>)).save(output);</code></pre>
         </div>
 
         <p>
@@ -302,11 +303,12 @@ tag(ModEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
             </div>
             <pre><code>{
   "type": "earthify:extractor",
+  "category": "oils",
   "experience": 1.0,
-  "ingredient": "minecraft:pale_oak_log",
+  "ingredient": "earthify:stripped_rosewood_log",
   "extraction_time": 300,
   "result": {
-    "id": "minecraft:resin_clump"
+    "id": "earthify:rosewood_oil"
   }
 }</code></pre>
         </div>
