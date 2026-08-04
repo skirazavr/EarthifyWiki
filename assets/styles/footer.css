@@ -10,13 +10,14 @@
 .footer-popup {
     position: fixed;
     bottom: 20px;
-    left: 16px;
-    width: 280px;
-    max-width: 280px;
-    display: flex;
+    left: 50%;
+    width: fit-content;
+    max-width: calc(100vw - 32px);
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
+    gap: 16px;
+    padding: 14px 20px;
+    justify-content: space-between;
     background: rgba(43, 47, 53, 0.55);
     backdrop-filter: blur(18px) saturate(180%);
     -webkit-backdrop-filter: blur(18px) saturate(180%);
@@ -26,8 +27,11 @@
     box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.08);
     z-index: 9999;
     opacity: 0;
-    transform: translateY(20px) scale(.96);
-    transition: opacity .35s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
+    transform: translateX(-50%) translateY(20px) scale(.96);
+    transition: opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     overflow: hidden;
 }
 
@@ -38,12 +42,12 @@
 
 .footer-popup.show {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateX(-50%) translateY(0) scale(1);
 }
 
 .footer-popup.closing {
     opacity: 0;
-    transform: translateY(20px) scale(.96);
+    transform: translateX(-50%) translateY(20px) scale(.96);
 }
 
 .footer-popup a {
@@ -59,6 +63,7 @@
 }
 
 .footer-popup-close {
+    flex-shrink: 0;
     border: none;
     background: transparent;
     color: white;
