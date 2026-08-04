@@ -1,88 +1,94 @@
 .wiki-preview {
     display: none;
-
     position: absolute;
-
-    width: 520px;
-    min-height: 220px;
-
-    background: #2a2e33;
-    border: 1px solid #54595d;
-    border-radius: 8px;
-
-    overflow: hidden;
-    pointer-events: none;
     z-index: 999999;
+    pointer-events: none;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    width: 540px;
+    min-height: 250px;
+
+    background: linear-gradient(180deg, #2f343a 0%, #262b30 100%);
+    border: 1px solid #454b52;
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow:
+            0 18px 45px rgba(0, 0, 0, .45),
+            0 4px 12px rgba(0, 0, 0, .25);
+
+    backdrop-filter: blur(8px);
 }
 
 .preview-layout {
     display: flex;
-    min-height: 220px;
+    height: 250px;
 }
 
 .preview-text {
     flex: 1;
-
-    padding: 14px;
+    height: 250px;
+    padding: 20px;
     box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
+    overflow: hidden;
 }
 
 .preview-title {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
 .preview-description {
-    color: #eaecf0;
-    line-height: 1.5;
+    color: #c9d1d9;
+    line-height: 1.7;
+    font-size: 14px;
 
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 7;
+    -webkit-line-clamp: 7;
 }
 
 .preview-image {
     width: 240px;
     min-width: 240px;
-    height: 220px;
+    height: 250px;
 
     overflow: hidden;
-
-    border-left: 1px solid #54595d;
-    background: #24301f;
-
-    box-sizing: border-box;
+    background: #1f2328;
+    border-left: 1px solid #454b52;
 }
 
 .preview-image.item {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    padding: 15px;
+    padding: 22px;
+    background:
+            radial-gradient(circle at center,
+            #31473a 0%,
+            #24301f 100%);
 }
 
 .preview-image.item img {
     width: 100%;
     height: 100%;
 
-    display: block;
-
     object-fit: contain;
     object-position: center;
+
     image-rendering: pixelated;
+
+    transition: transform .25s ease;
 }
 
 .preview-image.mob,
 .preview-image.biome,
 .preview-image.structure {
-    padding: 0;
     background: #000;
 }
 
@@ -92,11 +98,23 @@
     width: 100%;
     height: 100%;
 
-    display: block;
-
     object-fit: cover;
-    object-position: 50% 35%;
-    image-rendering: auto;
+    object-position: center;
+
+    transition:
+            transform .3s ease,
+            filter .3s ease;
+}
+
+.wiki-preview:hover .preview-image.mob img,
+.wiki-preview:hover .preview-image.biome img,
+.wiki-preview:hover .preview-image.structure img {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+}
+
+.wiki-preview:hover .preview-image.item img {
+    transform: scale(1.08);
 }
 
 @media (max-width: 768px) {

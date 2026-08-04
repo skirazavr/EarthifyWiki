@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cache = new Map();
 
     document.querySelectorAll(
-        '.mob-card, .main a[href$=".html"]'
+        '.mob-card, .main a[href$=""]'
     ).forEach(card => {
 
         card.addEventListener("mouseenter", async () => {

@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="../assets/images/favicon.png"/>
     <link rel="stylesheet" href="../assets/styles/earthify.css"/>
     <link rel="stylesheet" href="../assets/styles/preview.css"/>
+    <link rel="stylesheet" href="../assets/styles/footer.css"/>
     <style>
         .infobox .img {
             padding: 0;
@@ -26,21 +27,23 @@
 <body>
 <header class="header">
     <div class="brand">
-        <a href="../main.html" style="color: inherit; text-decoration: none;">
-            <img src="../assets/images/logo.png" alt="Earthify Logo" class="logo"/>
-            Earthify Wiki
-        </a>
+        <a href="../" style="color: inherit; text-decoration: none;"></a>
+    </div>
+
+    <div class="search-container">
+        <label>
+            <input type="search" class="search-input"  placeholder="Search">
+        </label>
     </div>
 </header>
 
 <div class="wrapper">
     <nav class="sidebar">
         <h3>Navigation</h3>
-        <a href="../main.html">Main Page</a>
-        <a href="../mobs.html">Mobs</a>
-        <a href="../biomes.html">Biomes</a>
-        <a href="../structures.html">Structures</a>
-        <a href="../items.html">Items</a>
+        <a href="../mobs">Mobs</a>
+        <a href="../biomes">Biomes</a>
+        <a href="../structures">Structures</a>
+        <a href="../items">Items</a>
     </nav>
 
     <main class="main">
@@ -53,16 +56,18 @@
                 <p>
                     Built primarily from Rosewood, Small Stables are rustic buildings
                     commonly found in
-                    <a href="../biomes/rosewood_grove.html">Rosewood Grove</a> biome.
+                    <a href="../biomes/rosewood_grove">Rosewood Grove</a> biome.
                     These structures serve as shelters for livestock but are often
                     occupied by hostile illagers.
                 </p>
+
+                <hr>
 
                 <h2>Generation</h2>
 
                 <p>
                     Small Stables generate naturally in
-                    <a href="../biomes/rosewood_grove.html">Rosewood Grove</a> biomes.
+                    <a href="../biomes/rosewood_grove">Rosewood Grove</a> biomes.
                 </p>
 
                 <p>
@@ -73,11 +78,13 @@
                 <p>
                     The structure can appear in biomes belonging to the
                     <span class="tag-badge"
-                    ><span style="color: #ffffff">ModBiomeTags.</span
+                    ><span style="color: #ffffff">EarthifyBiomeTags.</span
                     ><span style="color: #b392f0">HAS_SMALL_STABLE</span></span
                     >
                     biome tag.
                 </p>
+
+                <hr>
 
                 <h2>Inhabitants</h2>
 
@@ -103,6 +110,8 @@
                     </tr>
                 </table>
 
+                <hr>
+
                 <h2>Features</h2>
 
                 <ul>
@@ -110,6 +119,8 @@
                     <li>Can spawn Ravagers.</li>
                     <li>Terrain-adaptive generation.</li>
                 </ul>
+
+                <hr>
 
                 <h2>Loot</h2>
 
@@ -145,7 +156,9 @@
 <script src="../assets/js/back_to_top.js"></script>
 <script src="../assets/js/footer.js"></script>
 <script src="../assets/js/preview.js"></script>
+<script src="../assets/js/timer.js"></script>
+<script src="../assets/js/search.js"></script>
 
-<button id="backToTop">↑</button>
+<button id="backToTop" aria-label="Back to top"></button>
 </body>
 </html>

@@ -7,6 +7,7 @@
     <title>Magma Cow - Earthify Wiki</title>
     <link rel="icon" type="image/png" href="../assets/images/favicon.png"/>
     <link rel="stylesheet" href="../assets/styles/earthify.css"/>
+    <link rel="stylesheet" href="../assets/styles/footer.css"/>
     <style>
         .infobox .img {
             padding: 0;
@@ -25,22 +26,23 @@
 <body>
 <header class="header">
     <div class="brand">
-        <a href="../main.html" style="color: inherit; text-decoration: none;">
-            <img src="../assets/images/logo.png" alt="Earthify Logo" class="logo"/>
-            Earthify Wiki
-        </a>
+        <a href="../" style="color: inherit; text-decoration: none;"></a>
+    </div>
+
+    <div class="search-container">
+        <label>
+            <input type="search" class="search-input"  placeholder="Search">
+        </label>
     </div>
 </header>
 
 <div class="wrapper">
     <nav class="sidebar">
         <h3>Navigation</h3>
-
-        <a href="../main.html">Main Page</a>
-        <a href="../mobs.html">Mobs</a>
-        <a href="../biomes.html">Biomes</a>
-        <a href="../structures.html">Structures</a>
-        <a href="../items.html">Items</a>
+        <a href="../mobs">Mobs</a>
+        <a href="../biomes">Biomes</a>
+        <a href="../structures">Structures</a>
+        <a href="../items">Items</a>
     </nav>
 
     <main class="main">
@@ -57,6 +59,8 @@
                     conditions of the Nether and can even produce lava.
                 </p>
 
+                <hr>
+
                 <h2>Spawning</h2>
 
                 <p>Magma Cows naturally spawn in the following Nether biomes:</p>
@@ -71,6 +75,8 @@
                     They spawn on Basalt, Smooth Basalt, Blackstone and Magma Blocks.
                 </p>
 
+                <hr>
+
                 <h2>Behavior</h2>
 
                 <ul>
@@ -84,11 +90,15 @@
                     <li>Consumes Magma Blocks to recover health.</li>
                 </ul>
 
+                <hr>
+
                 <h2>Lava Production</h2>
 
                 <p>Using a Bucket on an adult Magma Cow produces a Lava Bucket.</p>
 
                 <p>Unlike normal cows, Magma Cows provide lava instead of milk.</p>
+
+                <hr>
 
                 <h2>Weakening</h2>
 
@@ -100,6 +110,8 @@
                     A weakened Magma Cow can recover by consuming a nearby Magma
                     Block, restoring health and removing the weakened state.
                 </p>
+
+                <hr>
 
                 <h2>Drops</h2>
 
@@ -142,7 +154,7 @@
 
                     <tr>
                         <td>Health</td>
-                        <td>12 HP (6 ♥)</td>
+                        <td>12 HP (6 <img src="../assets/images/misc/heart.svg" alt="Heart" class="heart-icon">)</td>
                     </tr>
 
                     <tr>
@@ -183,6 +195,9 @@
 <script src="../assets/js/back_to_top.js"></script>
 <script src="../assets/js/footer.js"></script>
 
-<button id="backToTop">↑</button>
+<script src="../assets/js/timer.js"></script>
+<script src="../assets/js/search.js"></script>
+
+<button id="backToTop" aria-label="Back to top"></button>
 </body>
 </html>

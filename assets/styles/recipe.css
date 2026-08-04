@@ -1,5 +1,62 @@
-.recipe-image img {
+.recipe-image {
+    position: relative;
     width: 384px;
-    height: 198px;
+    max-width: 100%;
+    aspect-ratio: 384 / 198;
+    height: auto;
+    background: url("../recipes/crafting.png") center / contain no-repeat;
     image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.recipe-slot {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    image-rendering: pixelated;
+}
+
+.recipe-image + h2 {
+    margin-top: 16px;
+}
+
+#item-tooltip::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 45%);
+    pointer-events: none;
+}
+
+#item-tooltip {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 8px 12px;
+    background: rgba(43, 47, 53, 0.55);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.08);
+    color: #eaecf0;
+    font-family: "Minecraft", sans-serif;
+    font-size: 13px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+:root {
+    --recipe-scale: 1;
+}
+
+@media (max-width: 900px) {
+    .recipe-image {
+        width: 100%;
+        margin: 0 auto;
+    }
 }

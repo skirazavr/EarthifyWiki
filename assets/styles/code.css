@@ -1,91 +1,108 @@
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('../fonts/JetBrains.ttf') format('truetype');
+    src: url('../fonts/jetbrains.woff2') format('woff2');
 }
 
 :not(pre) > code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.2em;
-    line-height: 1.4;
-
-    color: #e6e6e6;
-    background: #2a2e33;
-
-    border: 1px solid #54595d;
-    border-radius: 5px;
-
-    padding: 3px 7px;
-
-    vertical-align: middle;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    padding: 2px 6px;
+    color: #d2a8ff;
+    background: #2b3138;
+    border: 1px solid #40464d;
+    border-radius: 6px;
 }
 
 .code-block {
-    background: #1e1e1e;
-    border: 1px solid #54595d;
-    border-radius: 8px;
-    padding: 12px 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    background: #1f2329;
+    border: 1px solid #353b42;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+    overflow: hidden;
     position: relative;
-    max-width: 100%;
+}
+
+.code-block + p {
+    margin-top: 24px;
 }
 
 .code-block pre {
     margin: 0;
-    max-width: 100%;
+    padding: 16px;
     overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 8px;
 }
 
 .code-block code {
-    color: #e6e6e6;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 13px;
-    white-space: pre;
+    line-height: 1.6;
+    color: #e6edf3;
 }
 
 .code-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 16px;
+    background: #262b30;
+    border-bottom: 1px solid #353b42;
+    font-size: 12px;
+    font-weight: 600;
+    color: #c9d1d9;
+    margin: 0;
+}
 
-    margin: -12px -16px 12px -16px;
-    padding: 8px 12px;
+.code-block pre::-webkit-scrollbar {
+    height: 8px;
+}
 
-    background: #2a2e33;
-    border-bottom: 1px solid #54595d;
-    border-radius: 8px 8px 0 0;
+.code-block pre::-webkit-scrollbar-track {
+    background: #262b30;
+}
 
-    font-size: 11px;
-    color: #e6e6e6;
-    font-weight: bold;
+.code-block pre::-webkit-scrollbar-thumb {
+    background: #4a4f55;
+    border-radius: 999px;
+}
+
+.code-block pre::-webkit-scrollbar-thumb:hover {
+    background: #5c636b;
+}
+
+.code-block:not(:has(.code-header)) .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+}
+
+.code-header .copy-btn {
+    position: static;
 }
 
 .copy-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-
-    min-width: 60px;
-
-    font-family: 'Minecraft', sans-serif;
+    padding: 4px 10px;
+    font-family: inherit;
     font-size: 10px;
-
-    background: #6b6b6b;
-    color: white;
-
-    border: 1px solid #000;
+    color: #d8dee5;
+    background: #353b42;
+    border: 1px solid #4a4f55;
+    border-radius: 6px;
     cursor: pointer;
-
-    transition: background-color 0.2s;
+    transition: background .15s ease, border-color .15s ease, transform .15s ease;
 }
 
 .copy-btn:hover {
-    background: #7a7a7a;
+    background: #40474f;
+    border-color: #5b6168;
+}
+
+.copy-btn:active {
+    transform: scale(.97);
 }
 
 .copy-btn.copied {
-    background: #0e6a3b;
+    background: #0f6f40;
+    border-color: #158f54;
 }
 
 .code-keyword {
@@ -122,6 +139,10 @@
 
 .code-package {
     color: #BCBEC4;
+}
+
+h2 + .code-block {
+    margin-top: 16px;
 }
 
 @media (max-width: 1024px) {
