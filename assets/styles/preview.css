@@ -1,22 +1,32 @@
+.wiki-preview::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 45%);
+    pointer-events: none;
+    z-index: 0;
+}
+
 .wiki-preview {
     display: none;
     position: absolute;
     z-index: 999999;
     pointer-events: none;
-
     width: 540px;
     min-height: 250px;
-
-    background: linear-gradient(180deg, #2f343a 0%, #262b30 100%);
-    border: 1px solid #454b52;
+    background: rgba(43, 47, 53, 0.55);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255,255,255,.08);
     border-radius: 16px;
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.08);
+}
 
-    box-shadow:
-            0 18px 45px rgba(0, 0, 0, .45),
-            0 4px 12px rgba(0, 0, 0, .25);
-
-    backdrop-filter: blur(8px);
+.wiki-preview > * {
+    position: relative;
+    z-index: 1;
 }
 
 .preview-layout {
@@ -34,7 +44,6 @@
 
 .preview-title {
     margin-bottom: 12px;
-
     color: #ffffff;
     font-size: 20px;
     font-weight: 700;
@@ -45,7 +54,6 @@
     color: #c9d1d9;
     line-height: 1.7;
     font-size: 14px;
-
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -57,7 +65,6 @@
     width: 240px;
     min-width: 240px;
     height: 250px;
-
     overflow: hidden;
     background: #1f2328;
     border-left: 1px solid #454b52;
@@ -68,10 +75,7 @@
     align-items: center;
     justify-content: center;
     padding: 22px;
-    background:
-            radial-gradient(circle at center,
-            #31473a 0%,
-            #24301f 100%);
+    background: radial-gradient(circle at center, #31473a 0%, #24301f 100%);
 }
 
 .preview-image.item img {
