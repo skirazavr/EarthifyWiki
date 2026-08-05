@@ -37,6 +37,15 @@ const results = document.createElement("div");
 results.className = "search-results";
 document.querySelector(".search-container").appendChild(results);
 
+function updateFade() {
+    const maxScroll = results.scrollHeight - results.clientHeight;
+
+    results.classList.toggle("fade-top", results.scrollTop > 0);
+    results.classList.toggle("fade-bottom", results.scrollTop < maxScroll - 1);
+}
+
+results.addEventListener("scroll", updateFade);
+
 input.addEventListener("input", () => {
 
     const query = input.value.trim().toLowerCase();
@@ -44,6 +53,7 @@ input.addEventListener("input", () => {
     results.innerHTML = "";
 
     if (query.length === 0) {
+        results.classList.remove("fade-top", "fade-bottom");
         results.style.display = "none";
         return;
     }
@@ -74,6 +84,7 @@ input.addEventListener("input", () => {
     }
 
     results.style.display = "block";
+    requestAnimationFrame(updateFade);
 });
 
 document.addEventListener("click", e => {
