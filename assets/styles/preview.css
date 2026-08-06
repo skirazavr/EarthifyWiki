@@ -70,38 +70,31 @@
     border-left: 1px solid #454b52;
 }
 
-.preview-image.item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 22px;
-    background: radial-gradient(circle at center, #31473a 0%, #24301f 100%);
-}
-
-.preview-image.item img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-    object-position: center;
-
-    image-rendering: pixelated;
-
-    transition: transform .25s ease;
-}
-
-.preview-image.item img[src*="mixture"] {
-    transform: translateY(-20px);
-}
-
+.preview-image.item,
 .preview-image.block {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
+    overflow: hidden;
 }
 
+.preview-image.item::before,
+.preview-image.block::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at center, #31473a 0%, #24301f 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.preview-image.item img,
 .preview-image.block img {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -109,12 +102,9 @@
     transition: transform .25s ease;
 }
 
+.wiki-preview:hover .preview-image.item img,
 .wiki-preview:hover .preview-image.block img {
     transform: scale(1.08);
-}
-
-.wiki-preview:hover .preview-image.item img[src*="mixture"] {
-    transform: translateY(-20px) scale(1.08);
 }
 
 .preview-image.mob,
