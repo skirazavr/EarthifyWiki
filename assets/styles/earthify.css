@@ -704,66 +704,6 @@ table + h2 {
     image-rendering: pixelated;
 }
 
-.mob-card {
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    padding: 8px;
-    text-align: center;
-}
-
-.mob-card:hover {
-    background: none;
-    border: none;
-}
-
-.mob-card img {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    image-rendering: pixelated;
-    margin-bottom: 6px;
-}
-
-.mob-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.mob-name {
-    display: block;
-    margin-top: 6px;
-    color: #7ed6a7;
-}
-
-.mob-card:hover .mob-name {
-    color: #a8f0c6;
-    text-decoration: underline;
-}
-
-.mob-grid + h2 {
-    margin-top: 16px;
-}
-
-.mob-card,
-.mob-card:hover,
-.mob-card:focus,
-.mob-card:focus-visible {
-    border-bottom: none !important;
-}
-
-.mob-card:visited .mob-name {
-    color: #5fbf8d;
-}
-
-.mob-card:visited:hover .mob-name {
-    color: #8fe8b5;
-}
-
 .tag-badge {
     display: inline-flex;
     align-items: center;
