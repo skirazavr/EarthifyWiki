@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let mouseX = 0;
     let mouseY = 0;
+    let isScrolling = false;
+    let scrollTimer;
 
     const ITEM_PATH = "../assets/items/";
     const BASE_WIDTH = 384;
@@ -99,20 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.addEventListener("scroll", () => {
-
+        isScrolling = true;
         hideTooltip();
 
-        requestAnimationFrame(() => {
-
-            const element = document.elementFromPoint(mouseX, mouseY);
-
-            const slot = element?.closest(".recipe-slot");
-            if (!slot) return;
-
-            showTooltip(slot.dataset.item);
-
-        });
-
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            isScrolling = false;
+        }, 150);
     }, { passive: true });
 
     document.addEventListener("mousemove", e => {
@@ -140,7 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
         tooltip.style.top = y + "px";
     });
 
+    document.addEventListener("touchmove", hideTooltip, { passive: true });
+
     document.addEventListener("mouseover", e => {
+
+        if (isScrolling) return;
 
         const slot = e.target.closest(".recipe-slot");
         if (!slot) return;
