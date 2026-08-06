@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth <= 768) {
         return;
     }
-			
+
 	const preview = document.createElement("div");
     preview.className = "wiki-preview";
 
@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     url.includes("/biomes/") ? "biome" :
                     url.includes("/structures/") ? "structure" :
                     url.includes("/items/") ? "item" :
+                    url.includes("/blocks/") ? "block" :
                     "mob";
 
                 const data = {
