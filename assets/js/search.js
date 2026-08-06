@@ -24,7 +24,8 @@ const pages = [
     { title: "Furnace Golem", url: "mobs/furnace_golem", category: "Mob", icon: "assets/images/spawn_eggs/furnace_golem.svg" },
     { title: "Rosewood Grove", url: "biomes/rosewood_grove", category: "Biome" },
     { title: "Small Stable", url: "structures/small_stable", category: "Structure" },
-    { title: "Mixture", url: "items/mixture", category: "Item", icon: "assets/items/mixture.png" }
+    { title: "Mixture", url: "items/mixture", category: "Item", icon: "assets/items/mixture.png" },
+    { title: "Extractor", url: "blocks/extractor", category: "Block", icon: "assets/images/blocks/extractor.svg" }
 ];
 
 const ROOT = location.pathname.startsWith("/EarthifyWiki/")
