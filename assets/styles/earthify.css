@@ -9,6 +9,18 @@
     vertical-align: -2px;
 }
 
+.rarity-common {
+    color: #ffffff;
+}
+
+.rarity-legendary {
+    color: #fae199;
+}
+
+.rarity-mythical {
+    color: #7391c8;
+}
+
 .drops-table img.extra-health,
 .drops-table img.block-reach,
 .drops-table img.entity-reach,

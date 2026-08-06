@@ -24,8 +24,8 @@ const pages = [
     { title: "Furnace Golem", url: "mobs/furnace_golem", category: "Mob", icon: "assets/images/spawn_eggs/furnace_golem.svg" },
     { title: "Rosewood Grove", url: "biomes/rosewood_grove", category: "Biome" },
     { title: "Small Stable", url: "structures/small_stable", category: "Structure" },
-    { title: "Mixture", url: "items/mixture", category: "Item", icon: "assets/items/mixture.png" },
-    { title: "Extractor", url: "blocks/extractor", category: "Block", icon: "assets/images/blocks/extractor.svg" }
+    { title: "Mixture", url: "items/mixture", category: "Item", rarity: "mythical", icon: "assets/items/mixture.png" },
+    { title: "Extractor", url: "blocks/extractor", category: "Block", rarity: "legendary", icon: "assets/images/blocks/extractor.svg" }
 ];
 
 const ROOT = location.pathname.startsWith("/EarthifyWiki/")
@@ -71,14 +71,18 @@ input.addEventListener("input", () => {
 
             a.href = ROOT + page.url;
             a.className = "search-item";
+            const rarity = page.rarity ?? "common";
+
             a.innerHTML = `
-    <div class="search-item-content">
-        <div class="search-item-text">
-            <strong>${page.title}</strong><br>
-            <small>${page.category}</small>
-        </div>
-        ${page.icon ? `<img class="search-item-icon" src="${ROOT + page.icon}" alt="${page.title}">` : ""}
+<div class="search-item-content">
+    <div class="search-item-text">
+        <strong class="rarity-${rarity}">
+            ${page.title}
+        </strong><br>
+        <small>${page.category}</small>
     </div>
+    ${page.icon ? `<img class="search-item-icon" src="${ROOT + page.icon}" alt="${page.title}">` : ""}
+</div>
 `;
             results.appendChild(a);
         });
