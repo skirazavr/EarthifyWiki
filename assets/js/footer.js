@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.className = "footer-popup";
     popup.innerHTML = `
         <span>
-            Earthify Wiki is an open-source project.
+            Earthifyis an open-source project.
             <a href="https://github.com/Skirazavr/EarthifyWiki" target="_blank">
                 View source on GitHub
             </a>
