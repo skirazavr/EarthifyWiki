@@ -90,6 +90,10 @@
     transition: transform .25s ease;
 }
 
+.preview-image.item img[src*="mixture"] {
+    transform: translate(-6.125px, -6.125px);
+}
+
 .preview-image.mob,
 .preview-image.biome,
 .preview-image.structure {
