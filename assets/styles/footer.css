@@ -35,6 +35,10 @@
     overflow: hidden;
 }
 
+.footer-popup:hover {
+    transform: translateX(-50%) translateY(0) scale(1.02);
+}
+
 .footer-popup > * {
     position: relative;
     z-index: 1;
@@ -43,6 +47,10 @@
 .footer-popup.show {
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.footer-popup.show:hover {
+    transform: translateX(-50%) translateY(0) scale(1.02);
 }
 
 .footer-popup.closing {
