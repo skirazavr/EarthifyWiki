@@ -91,7 +91,11 @@
 }
 
 .preview-image.item img[src*="mixture"] {
-    transform: translate(-6.125px, -6.125px);
+    transform: translateY(-20px);
+}
+
+.wiki-preview:hover .preview-image.item img[src*="mixture"] {
+    transform: translateY(-20px) scale(1.08);
 }
 
 .preview-image.mob,
