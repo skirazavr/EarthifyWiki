@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Minecraft';
-    src: url('../fonts/minecraft.woff2') format('woff2');
+    src: url('/assets/fonts/minecraft.woff2') format('woff2');
 }
 
 .heart-icon {
@@ -195,8 +195,8 @@ p + h2 {
 }
 
 :root {
-    --title-logo: url("../images/title-logo.png");
-    --wiki-logo: url("../images/earthify-wiki.png");
+    --title-logo: url("/assets/images/title-logo.png");
+    --wiki-logo: url("/assets/images/earthify-wiki.png");
 }
 
 .brand a::after {
@@ -211,17 +211,17 @@ p + h2 {
 }
 
 body.christmas {
-    --title-logo: url("../images/title-logo-christmas.png");
-    --wiki-logo: url("../images/earthify-wiki-christmas.png");
+    --title-logo: url("/assets/images/title-logo-christmas.png");
+    --wiki-logo: url("/assets/images/earthify-wiki-christmas.png");
 }
 
 body.winter {
-    --title-logo: url("../images/title-logo-winter.png");
-    --wiki-logo: url("../images/earthify-wiki-winter.png");
+    --title-logo: url("/assets/images/title-logo-winter.png");
+    --wiki-logo: url("/assets/images/earthify-wiki-winter.png");
 }
 
 body.spring {
-    --wiki-logo: url("../images/earthify-wiki-spring.png");
+    --wiki-logo: url("/assets/images/earthify-wiki-spring.png");
 }
 
 .drops-table {
@@ -488,7 +488,7 @@ table + h2 {
     width: 20px;
     height: 20px;
     transform: translateY(-50%);
-    background: url("../images/search-icon.svg") center/contain no-repeat;
+    background: url("/assets/images/search-icon.svg") center/contain no-repeat;
     opacity: .7;
     pointer-events: none;
     z-index: 1;
@@ -527,7 +527,7 @@ table + h2 {
     width: 18px;
     height: 18px;
     margin-left: 8px;
-    background: url("../images/close.svg") center/contain no-repeat;
+    background: url("/assets/images/close.svg") center/contain no-repeat;
     cursor: pointer;
 }
 
@@ -743,7 +743,7 @@ table + h2 {
     height: 64px;
     padding: 0;
     border: none;
-    background: url("../images/button_up.svg") center / contain no-repeat;
+    background: url("/assets/images/button_up.svg") center / contain no-repeat;
     image-rendering: pixelated;
     cursor: pointer;
     outline: none;
@@ -791,7 +791,7 @@ table + h2 {
         position: fixed;
         inset: 0;
         z-index: -1;
-        background: url("../images/background-top-mobile.webp") top center / 100% auto no-repeat, url("../images/background-bottom-mobile.webp") top left repeat-y;
+        background: url("/assets/images/background-top-mobile.webp") top center / 100% auto no-repeat, url("/assets/images/background-bottom-mobile.webp") top left repeat-y;
     }
 
     body {

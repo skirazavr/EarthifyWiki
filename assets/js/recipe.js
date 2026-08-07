@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isScrolling = false;
     let scrollTimer;
 
-    const ITEM_PATH = "../assets/items/";
+    const ITEM_PATH = "/assets/items/";
     const SLOT_SIZE = 48;
 
     const layouts = {

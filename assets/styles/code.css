@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('../fonts/jetbrains.woff2') format('woff2');
+    src: url('/assets/fonts/jetbrains.woff2') format('woff2');
 }
 
 :not(pre) > code {

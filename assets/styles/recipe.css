@@ -12,11 +12,11 @@
 }
 
 .recipe-image[data-type="crafting"] {
-    background-image: url("../recipes/crafting.png");
+    background-image: url("/assets/recipes/crafting.png");
 }
 
 .recipe-image[data-type="extractor"] {
-    background-image: url("../recipes/extractor.png");
+    background-image: url("/assets/recipes/extractor.png");
 }
 
 .recipe-slot {
