@@ -145,7 +145,7 @@ h2 + .code-block {
     margin-top: 16px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .code-block {
         padding: 10px;
     }
@@ -161,5 +161,42 @@ h2 + .code-block {
     .copy-btn {
         font-size: 9px;
         min-width: 50px;
+    }
+
+    .code-block {
+        background: rgba(43, 47, 53, .45);
+        border: 1px solid rgba(255,255,255,.08);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 -1px rgba(255,255,255,.04);
+    }
+
+    .code-header {
+        background: rgba(255,255,255,.04);
+        border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .code-block pre {
+        background: transparent;
+    }
+
+    .copy-btn {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.08);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .copy-btn:hover {
+        background: rgba(255,255,255,.10);
+    }
+
+    :not(pre) > code {
+        color: #d2a8ff;
+        background: rgba(43, 47, 53, .45);
+        border: 1px solid rgba(255,255,255,.08);
+        backdrop-filter: blur(12px) saturate(170%);
+        -webkit-backdrop-filter: blur(12px) saturate(170%);
+        box-shadow: 0 4px 12px rgba(0,0,0,.25), inset 0 -1px rgba(255,255,255,.04);
     }
 }
