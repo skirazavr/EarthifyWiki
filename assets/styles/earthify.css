@@ -723,20 +723,16 @@ table + h2 {
 .tag-badge {
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
     padding: 4px 10px;
     border-radius: 999px;
-    background: rgba(17, 118, 59, .12);
-    border: 1px solid rgba(17, 118, 59, .35);
-    color: #7ee6a2;
     font-size: .9em;
     font-weight: 500;
     line-height: 1.4;
     transition: all .15s ease;
-}
-
-.tag-badge:hover {
-    background: rgba(17, 118, 59, .18);
-    border-color: rgba(17, 118, 59, .5);
 }
 
 #backToTop {
