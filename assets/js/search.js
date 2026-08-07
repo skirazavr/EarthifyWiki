@@ -24,7 +24,8 @@ const pages = [
     { title: "Furnace Golem", url: "mobs/furnace_golem", category: "Mob", icon: "assets/images/spawn_eggs/furnace_golem.svg" },
     { title: "Rosewood Grove", url: "biomes/rosewood_grove", category: "Biome" },
     { title: "Small Stable", url: "structures/small_stable", category: "Structure" },
-    { title: "Mixture", url: "items/mixture", category: "Item", rarity: "mythical", icon: "assets/items/mixture.png" },
+    { title: "Bestiary", url: "items/bestiary", category: "Item", rarity: "bestiary", icon: "assets/images/items/bestiary.svg" },
+    { title: "Mixture", url: "items/mixture", category: "Item", rarity: "mythical", icon: "assets/images/items/mixture.svg" },
     { title: "Extractor", url: "blocks/extractor", category: "Block", rarity: "legendary", icon: "assets/images/blocks/extractor.svg" }
 ];
 
