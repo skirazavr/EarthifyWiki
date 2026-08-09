@@ -770,6 +770,12 @@ table + h2 {
     transform: scale(1.05) translateY(0);
 }
 
+@media (max-width: 1024px) and (min-width: 901px) {
+    .search-container {
+        width: 210px;
+    }
+}
+
 @media (max-width: 900px) {
     hr {
         border: none;
