@@ -41,6 +41,7 @@
 html,
 body {
     overflow-x: hidden !important;
+    min-height: 100%;
 }
 
 body {
@@ -49,6 +50,9 @@ body {
     color: #eaecf0;
     font-family: 'Minecraft', sans-serif;
     font-size: 12px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 html {
@@ -388,24 +392,16 @@ table + h2 {
     left: 0;
     right: 0;
     display: none;
-
     max-height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
-
     background: rgba(43, 47, 53, .55);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-
     border: 1px solid rgba(255,255,255,.08);
     border-radius: 12px;
-
-    box-shadow:
-            0 8px 24px rgba(0,0,0,.35),
-            inset 0 1px rgba(255,255,255,.08);
-
+    box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.08);
     z-index: 1000;
-
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -435,25 +431,13 @@ table + h2 {
 .search-results::before {
     top: 0;
     margin-bottom: -28px;
-
-    background:
-            linear-gradient(
-                    rgba(43,47,53,.98),
-                    rgba(43,47,53,.75) 35%,
-                    rgba(43,47,53,0)
-            );
+    background: linear-gradient(rgba(43,47,53,.98), rgba(43,47,53,.75) 35%, rgba(43,47,53,0));
 }
 
 .search-results::after {
     bottom: 0;
     margin-top: -28px;
-
-    background:
-            linear-gradient(
-                    rgba(43,47,53,0),
-                    rgba(43,47,53,.75) 65%,
-                    rgba(43,47,53,.98)
-            );
+    background: linear-gradient(rgba(43,47,53,0), rgba(43,47,53,.75) 65%, rgba(43,47,53,.98));
 }
 
 .search-results.fade-top::before {
@@ -573,7 +557,8 @@ table + h2 {
 
 .wrapper {
     display: flex;
-    min-height: calc(100vh - 61px);
+    flex: 1;
+    min-height: 0;
 }
 
 .sidebar {
@@ -592,12 +577,20 @@ table + h2 {
 .sidebar a {
     display: flex;
     align-items: center;
+    gap: 10px;
     padding: 10px 14px;
     margin-bottom: 4px;
     color: #d8dee5;
     text-decoration: none;
     border-radius: 10px;
     transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+
+.sidebar a img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    image-rendering: pixelated;
 }
 
 .sidebar a:hover {
@@ -653,6 +646,7 @@ table + h2 {
     box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
     align-self: flex-start;
     box-sizing: border-box;
+    margin-top: -76px;
 }
 
 .infobox table {
@@ -693,13 +687,11 @@ table + h2 {
 .main a {
     color: #7ed6a7;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
     transition: color .15s ease, border-color .15s ease;
 }
 
 .main a:hover {
     color: #a8f0c6;
-    border-bottom-color: currentColor;
 }
 
 .main a:visited {
@@ -786,13 +778,7 @@ table + h2 {
         border: none;
         height: 3px;
         margin: 32px 0;
-
-        background: linear-gradient(
-                to bottom,
-                rgba(255,255,255,.12),
-                rgba(255,255,255,.03)
-        );
-
+        background: linear-gradient(to bottom, rgba(255,255,255,.12), rgba(255,255,255,.03));
         border-radius: 999px;
         opacity: .5;
     }
@@ -846,16 +832,16 @@ table + h2 {
 
     .sidebar {
         position: static;
-        width: calc(100vw - 1.87rem);
-        margin-left: 0.9375rem;
+        width: calc(100% - 2rem);
+        margin: 16px auto;
         padding: 1rem;
         box-sizing: border-box;
         background: rgba(43, 47, 53, 0.55);
         border: 1px solid rgba(255, 255, 255, .08);
         border-radius: 16px;
         box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 -1px rgba(255,255,255,.04);
-        align-self: flex-start;
-        top: 16px;
+        align-self: center;
+        top: auto;
         overflow: hidden;
         backdrop-filter: blur(16px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -897,8 +883,11 @@ table + h2 {
     .infobox {
         width: 100%;
         min-width: 0;
+        max-width: 100%;
         flex: none;
         order: -1;
+        margin-top: 0;
+        box-sizing: border-box;
     }
 
     .img {
@@ -1045,7 +1034,7 @@ table + h2 {
         height: 4rem;
         left: auto;
         right: max(16px, env(safe-area-inset-right));
-        bottom: 32px;
+        bottom: 72px;
         transform: translateY(10px) scale(1);
     }
 

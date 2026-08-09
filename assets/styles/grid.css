@@ -32,11 +32,12 @@
     display: block;
     margin-top: 6px;
     color: #7ed6a7;
+    text-decoration: none !important;
 }
 
 .card:hover .name {
     color: #a8f0c6;
-    text-decoration: underline;
+    text-decoration: none !important;
 }
 
 .grid + h2 {
@@ -46,8 +47,10 @@
 .card,
 .card:hover,
 .card:focus,
-.card:focus-visible {
+.card:focus-visible,
+.card:visited {
     border-bottom: none !important;
+    text-decoration: none !important;
 }
 
 .card:visited .name {
@@ -56,4 +59,10 @@
 
 .card:visited:hover .name {
     color: #8fe8b5;
+}
+
+@media (max-width: 900px) {
+    .card .name {
+        text-shadow: 0 2px 4px rgba(0,0,0,.6);
+    }
 }

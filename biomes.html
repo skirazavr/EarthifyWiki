@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#11763b"/>
     <title>Biomes - Earthify Wiki</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
-    <link rel="stylesheet" href="assets/styles/earthify.css"/>
-    <link rel="stylesheet" href="assets/styles/preview.css"/>
-    <link rel="stylesheet" href="assets/styles/footer.css"/>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png"/>
+    <link rel="stylesheet" href="/assets/styles/earthify.css"/>
+    <link rel="stylesheet" href="/assets/styles/preview.css"/>
+    <link rel="stylesheet" href="/assets/styles/footer.css"/>
+    <link rel="stylesheet" href="/assets/styles/grid.css"/>
 </head>
 
 <body>
@@ -27,11 +28,23 @@
 <div class="wrapper">
     <nav class="sidebar">
         <h3>Navigation</h3>
-        <a href="/mobs">Mobs</a>
-        <a href="/biomes">Biomes</a>
+        <a href="/mobs">
+            <img src="/assets/images/spawn_eggs/fancy_chicken.svg" alt="Mobs">
+            <span>Mobs</span>
+        </a>
+        <a href="/biomes">
+            <img src="/assets/images/biomes/rosewood_grove.svg" alt="Rosewood Grove">
+            <span>Biomes</span>
+        </a>
         <a href="/structures">Structures</a>
-        <a href="/items">Items</a>
-        <a href="/blocks">Blocks</a>
+        <a href="/items">
+            <img src="/assets/images/items/bestiary.svg" alt="Bestiary">
+            <span>Items</span>
+        </a>
+        <a href="/blocks">
+            <img src="/assets/images/blocks/extractor.svg" alt="Extractor">
+            <span>Blocks</span>
+        </a>
     </nav>
 
     <main class="main">
@@ -42,12 +55,19 @@
             Earthify adds
         </p>
 
-        <ul>
-            <li><a href="biomes/rosewood_grove">Rosewood Grove</a></li>
-        </ul>
+        <div class="grid">
+            <a href="/biomes/rosewood_grove" class="card">
+                <img src="/assets/images/biomes/rosewood_grove.svg" alt="Rosewood Grove"/>
+                <span class="name">Rosewood Grove</span>
+            </a>
+        </div>
     </main>
 </div>
-</body>
+
+<footer class="footer">
+    <span>© 2026 Skirazavr</span>
+    <a href="mailto:wiki@earthify.icu">wiki@earthify.icu</a>
+</footer>
 
 <script src="/assets/js/back_to_top.js"></script>
 <script src="/assets/js/footer.js"></script>
@@ -56,4 +76,5 @@
 <script src="/assets/js/search.js"></script>
 
 <button id="backToTop" aria-label="Back to top"></button>
+</body>
 </html>
