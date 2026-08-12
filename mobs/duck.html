@@ -107,7 +107,7 @@
                     <tr>
                         <td>
                             <img
-                                    src="/assets/items/green_duck_egg.png"
+                                    src="/assets/images/items/green_duck_egg.svg"
                                     alt="Green Duck Egg"
                             />
                             Green Duck Egg
@@ -118,7 +118,7 @@
                     <tr>
                         <td>
                             <img
-                                    src="/assets/items/white_duck_egg.png"
+                                    src="/assets/images/items/white_duck_egg.svg"
                                     alt="White Duck Egg"
                             />
                             White Duck Egg
@@ -129,7 +129,7 @@
                     <tr>
                         <td>
                             <img
-                                    src="/assets/items/cream_duck_egg.png"
+                                    src="/assets/images/items/cream_duck_egg.svg"
                                     alt="Cream Duck Egg"
                             />
                             Cream Duck Egg
@@ -145,7 +145,7 @@
                 <table class="drops-table">
                     <tr>
                         <td>
-                            <img src="/assets/items/duck_meat.png" alt="Duck Meat"/>
+                            <img src="/assets/images/items/duck_meat.svg" alt="Duck Meat"/>
                             Duck Meat
                         </td>
                         <td>1</td>
@@ -154,7 +154,7 @@
                     <tr>
                         <td>
                             <img
-                                    src="/assets/items/cooked_duck_meat.png"
+                                    src="/assets/images/items/cooked_duck_meat.svg"
                                     alt="Cooked Duck Meat"
                             />
                             Cooked Duck Meat
@@ -167,14 +167,33 @@
             <aside class="infobox">
                 <div class="ibox-title">Duck</div>
 
+                <div class="variants">
+                    <button class="variant active" data-variant="temperate">
+                        Temperate
+                    </button>
+
+                    <button class="variant" data-variant="cold">
+                        Cold
+                    </button>
+
+                    <button class="variant" data-variant="warm">
+                        Warm
+                    </button>
+                </div>
+
                 <div class="img">
-                    <img src="/assets/images/mobs/duck.png" alt="Duck"/>
+                    <img id="duck-image" src="/assets/images/mobs/duck_temperate.png" alt="Temperate Duck"/>
                 </div>
 
                 <table>
                     <tr>
                         <td>Type</td>
                         <td>Animal</td>
+                    </tr>
+
+                    <tr>
+                        <td>First appearance</td>
+                        <td><a href="/versions#1.0.0">1.0.0</a></td>
                     </tr>
 
                     <tr>
@@ -213,6 +232,43 @@
                     </tr>
                 </table>
             </aside>
+            <script>
+                const duckVariants = {
+                    temperate: {
+                        image: "/assets/images/mobs/duck_temperate.png",
+                        alt: "Temperate Duck"
+                    },
+
+                    cold: {
+                        image: "/assets/images/mobs/duck_cold.png",
+                        alt: "Cold Duck"
+                    },
+
+                    warm: {
+                        image: "/assets/images/mobs/duck_warm.png",
+                        alt: "Warm Duck"
+                    }
+                };
+
+                const buttons = document.querySelectorAll(".variant");
+                const image = document.getElementById("duck-image");
+
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        const variant = button.dataset.variant;
+                        const data = duckVariants[variant];
+
+                        image.src = data.image;
+                        image.alt = data.alt;
+
+                        buttons.forEach(btn => {
+                            btn.classList.remove("active");
+                        });
+
+                        button.classList.add("active");
+                    });
+                });
+            </script>
         </div>
     </main>
 </div>
@@ -227,6 +283,7 @@
 
 <script src="/assets/js/timer.js"></script>
 <script src="/assets/js/search.js"></script>
+<script src="/assets/js/404.js"></script>
 
 <button id="backToTop" aria-label="Back to top"></button>
 </body>

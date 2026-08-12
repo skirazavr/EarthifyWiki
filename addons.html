@@ -32,7 +32,7 @@
         <a href="#dependency">Dependency</a>
         <a href="#tags">Available Tags</a>
         <a href="#extensions">Plugin Extensions API</a>
-        <a href="#extractor">Extractor Recipes</a>
+        <a href="#extraction">Extraction Recipes</a>
     </nav>
 
     <main class="main">
@@ -250,7 +250,7 @@ tag(EarthifyEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
 
         <hr/>
 
-        <h2 id="extractor">5. Extractor Recipes</h2>
+        <h2 id="extraction">5. Extraction Recipes</h2>
 
         <p>
             Earthify provides a recipe builder for the <strong>Extractor</strong>,
@@ -275,18 +275,18 @@ tag(EarthifyEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
                 <span>Java</span>
                 <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>ExtractorRecipeBuilder.<em>extractFrom</em>(EarthifyItems.<span
+            <pre><code>ExtractionRecipeBuilder.<em>extractFrom</em>(EarthifyItems.<span
                     class="code-constant"><em>STRIPPED_ROSEWOOD_LOG</em></span>).to(EarthifyItems.<span
                     class="code-constant"><em>ROSEWOOD_OIL</em></span>).extractionTime(<span
                     class="code-number">300</span>).experience(<span
-                    class="code-number">1F</span>).category(ExtractorBookCategory.<span
+                    class="code-number">1F</span>).category(ExtractionBookCategory.<span
                     class="code-constant"><em>OILS</em></span>)
     .unlockedBy(<em>getHasName</em>(EarthifyItems.<span class="code-constant"><em>STRIPPED_ROSEWOOD_LOG</em></span>), has(EarthifyItems.<span
                         class="code-constant"><em>STRIPPED_ROSEWOOD_LOG</em></span>)).save(output);</code></pre>
         </div>
 
         <p>
-            Or just look for <code>AbstractEarthifyRecipeProvider</code> for needed <code>extractor(...)</code> helper.
+            Or just look for <code>AbstractEarthifyRecipeProvider</code> for needed <code>extraction(...)</code> helper.
         </p>
 
         <p>Example of a generated JSON:</p>
@@ -297,7 +297,7 @@ tag(EarthifyEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
                 <button class="copy-btn">Copy</button>
             </div>
             <pre><code>{
-  "type": "earthify:extractor",
+  "type": "earthify:extraction",
   "category": "oils",
   "experience": 1.0,
   "ingredient": "earthify:stripped_rosewood_log",
@@ -344,6 +344,7 @@ tag(EarthifyEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
 <script src="/assets/js/sidebar.js"></script>
 <script src="/assets/js/timer.js"></script>
 <script src="/assets/js/search.js"></script>
+<script src="/assets/js/404.js"></script>
 
 <button id="backToTop" aria-label="Back to top"></button>
 </body>

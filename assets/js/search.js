@@ -22,6 +22,7 @@ const pages = [
     { title: "Bouldering Zombie", url: "/mobs/bouldering_zombie", category: "Mob", icon: "assets/images/spawn_eggs/bouldering_zombie.svg" },
     { title: "Lobber Zombie", url: "/mobs/lobber_zombie", category: "Mob", icon: "assets/images/spawn_eggs/lobber_zombie.svg" },
     { title: "Furnace Golem", url: "/mobs/furnace_golem", category: "Mob", icon: "assets/images/spawn_eggs/furnace_golem.svg" },
+    { title: "Brown Bear", url: "/mobs/brown_bear", category: "Mob", icon: "assets/images/spawn_eggs/brown_bear.svg" },
     { title: "Rosewood Grove", url: "biomes/rosewood_grove", category: "Biome" },
     { title: "Small Stable", url: "structures/small_stable", category: "Structure" },
     { title: "Bestiary", url: "items/bestiary", category: "Item", rarity: "unique", icon: "assets/images/items/bestiary.svg" },

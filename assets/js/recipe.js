@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isScrolling = false;
     let scrollTimer;
 
-    const ITEM_PATH = "/assets/items/";
+    const ITEM_PATH = "/assets/images/items/";
     const SLOT_SIZE = 48;
 
     const layouts = {
@@ -65,18 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function setSlotImage(slot, item) {
-
-        const img = new Image();
-
-        img.onload = () => {
-            slot.style.backgroundImage = `url("${ITEM_PATH}${item}.png")`;
-        };
-
-        img.onerror = () => {
-            slot.style.backgroundImage = `url("${ITEM_PATH}${item}.svg")`;
-        };
-
-        img.src = `${ITEM_PATH}${item}.png`;
+        slot.style.backgroundImage = `url("${ITEM_PATH}${item}.svg")`;
     }
 
     function renderRecipe(recipe) {

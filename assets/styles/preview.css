@@ -70,8 +70,10 @@
     border-left: 1px solid #454b52;
 }
 
+.preview-image.mob,
 .preview-image.item,
-.preview-image.block {
+.preview-image.block,
+.preview-image.structure {
     position: relative;
     display: flex;
     align-items: center;
@@ -80,8 +82,10 @@
     overflow: hidden;
 }
 
+.preview-image.mob::before,
 .preview-image.item::before,
-.preview-image.block::before {
+.preview-image.block::before,
+.preview-image.structure::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -91,8 +95,10 @@
     z-index: 0;
 }
 
+.preview-image.mob img,
 .preview-image.item img,
-.preview-image.block img {
+.preview-image.block img,
+.preview-image.structure img {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -102,38 +108,32 @@
     transition: transform .25s ease;
 }
 
+.wiki-preview:hover .preview-image.mob img,
 .wiki-preview:hover .preview-image.item img,
-.wiki-preview:hover .preview-image.block img {
+.wiki-preview:hover .preview-image.block img,
+.wiki-preview:hover .preview-image.structure img {
     transform: scale(1.08);
 }
 
-.preview-image.mob,
-.preview-image.biome,
-.preview-image.structure {
+.preview-image.biome {
     background: #000;
 }
 
-.preview-image.mob img,
-.preview-image.biome img,
-.preview-image.structure img {
+.preview-image.biome img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center;
-
-    transition:
-            transform .3s ease,
-            filter .3s ease;
+    transition: transform .3s ease, filter .3s ease;
 }
 
-.wiki-preview:hover .preview-image.mob img,
-.wiki-preview:hover .preview-image.biome img,
-.wiki-preview:hover .preview-image.structure img {
+.wiki-preview:hover .preview-image.biome img {
     transform: scale(1.04);
     filter: brightness(1.05);
 }
 
+.wiki-preview:hover .preview-image.mob img,
+.wiki-preview:hover .preview-image.block img,
 .wiki-preview:hover .preview-image.item img {
     transform: scale(1.08);
 }

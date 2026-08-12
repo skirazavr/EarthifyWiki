@@ -193,7 +193,7 @@
                 <table class="drops-table">
                     <tr>
                         <td>
-                            <img src="/assets/items/rabbit_foot.png" alt="Rabbit Foot"/>
+                            <img src="/assets/images/items/rabbit_foot.svg" alt="Rabbit Foot"/>
                             Rabbit Foot
                         </td>
                         <td>0–2 (Looting affected)</td>
@@ -201,7 +201,7 @@
 
                     <tr>
                         <td>
-                            <img src="/assets/items/rabbit_hide.png" alt="Rabbit Hide"/>
+                            <img src="/assets/images/items/rabbit_hide.svg" alt="Rabbit Hide"/>
                             Rabbit Hide
                         </td>
                         <td>1</td>
@@ -212,14 +212,33 @@
             <aside class="infobox">
                 <div class="ibox-title">Raccoon</div>
 
+                <div class="variants">
+                    <button class="variant active" data-variant="temperate">
+                        Temperate
+                    </button>
+
+                    <button class="variant" data-variant="cold">
+                        Cold
+                    </button>
+
+                    <button class="variant" data-variant="warm">
+                        Warm
+                    </button>
+                </div>
+
                 <div class="img">
-                    <img src="/assets/images/mobs/raccoon.png" alt="Raccoon"/>
+                    <img id="raccoon-image" src="/assets/images/mobs/raccoon_temperate.png" alt="Temperate Raccoon"/>
                 </div>
 
                 <table>
                     <tr>
                         <td>Type</td>
                         <td>Animal</td>
+                    </tr>
+
+                    <tr>
+                        <td>First appearance</td>
+                        <td><a href="/versions#1.1.2">1.1.2</a></td>
                     </tr>
 
                     <tr>
@@ -236,23 +255,45 @@
                         <td>Behavior</td>
                         <td>Passive</td>
                     </tr>
-
-                    <tr>
-                        <td>Can Sleep</td>
-                        <td>Yes</td>
-                    </tr>
-
-                    <tr>
-                        <td>Can Beg</td>
-                        <td>Yes</td>
-                    </tr>
-
-                    <tr>
-                        <td>Breedable</td>
-                        <td>Yes</td>
-                    </tr>
                 </table>
             </aside>
+            <script>
+                const raccoonVariants = {
+                    temperate: {
+                        image: "/assets/images/mobs/raccoon_temperate.png",
+                        alt: "Temperate Raccoon"
+                    },
+
+                    cold: {
+                        image: "/assets/images/mobs/raccoon_cold.png",
+                        alt: "Cold Raccoon"
+                    },
+
+                    warm: {
+                        image: "/assets/images/mobs/raccoon_warm.png",
+                        alt: "Warm Raccoon"
+                    }
+                };
+
+                const buttons = document.querySelectorAll(".variant");
+                const image = document.getElementById("raccoon-image");
+
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        const variant = button.dataset.variant;
+                        const data = raccoonVariants[variant];
+
+                        image.src = data.image;
+                        image.alt = data.alt;
+
+                        buttons.forEach(btn => {
+                            btn.classList.remove("active");
+                        });
+
+                        button.classList.add("active");
+                    });
+                });
+            </script>
         </div>
     </main>
 </div>
@@ -264,9 +305,9 @@
 
 <script src="/assets/js/back_to_top.js"></script>
 <script src="/assets/js/footer.js"></script>
-
 <script src="/assets/js/timer.js"></script>
 <script src="/assets/js/search.js"></script>
+<script src="/assets/js/404.js"></script>
 
 <button id="backToTop" aria-label="Back to top"></button>
 </body>

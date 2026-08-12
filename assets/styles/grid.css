@@ -62,7 +62,39 @@
 }
 
 @media (max-width: 900px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+        column-gap: 12px;
+        row-gap: 16px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .card img {
+        width: min(64px, 60%);
+        height: auto;
+        aspect-ratio: 1;
+        margin-bottom: 4px;
+    }
+
     .card .name {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        width: 100%;
+        margin-top: 4px;
+        font-size: 11px;
+        line-height: 1.4;
+        min-height: calc(16px * 3);
+        text-align: center;
+        overflow-wrap: anywhere;
         text-shadow: 0 2px 4px rgba(0,0,0,.6);
     }
 }
