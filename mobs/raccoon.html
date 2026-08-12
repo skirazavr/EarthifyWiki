@@ -209,7 +209,7 @@
                 </table>
             </div>
 
-            <aside class="infobox">
+            <aside class="infobox entity-preview" data-entity="raccoon">
                 <div class="ibox-title">Raccoon</div>
 
                 <div class="variants">
@@ -226,8 +226,18 @@
                     </button>
                 </div>
 
+                <div class="variants">
+                    <button class="variant active" data-age="adult">
+                        Adult
+                    </button>
+
+                    <button class="variant" data-age="baby">
+                        Baby
+                    </button>
+                </div>
+
                 <div class="img">
-                    <img id="raccoon-image" src="/assets/images/mobs/raccoon_temperate.png" alt="Temperate Raccoon"/>
+                    <img class="entity-image" src="/assets/images/mobs/raccoon_temperate_adult.png" alt="Temperate Raccoon (Adult)"/>
                 </div>
 
                 <table>
@@ -257,43 +267,6 @@
                     </tr>
                 </table>
             </aside>
-            <script>
-                const raccoonVariants = {
-                    temperate: {
-                        image: "/assets/images/mobs/raccoon_temperate.png",
-                        alt: "Temperate Raccoon"
-                    },
-
-                    cold: {
-                        image: "/assets/images/mobs/raccoon_cold.png",
-                        alt: "Cold Raccoon"
-                    },
-
-                    warm: {
-                        image: "/assets/images/mobs/raccoon_warm.png",
-                        alt: "Warm Raccoon"
-                    }
-                };
-
-                const buttons = document.querySelectorAll(".variant");
-                const image = document.getElementById("raccoon-image");
-
-                buttons.forEach(button => {
-                    button.addEventListener("click", () => {
-                        const variant = button.dataset.variant;
-                        const data = raccoonVariants[variant];
-
-                        image.src = data.image;
-                        image.alt = data.alt;
-
-                        buttons.forEach(btn => {
-                            btn.classList.remove("active");
-                        });
-
-                        button.classList.add("active");
-                    });
-                });
-            </script>
         </div>
     </main>
 </div>
@@ -308,6 +281,7 @@
 <script src="/assets/js/timer.js"></script>
 <script src="/assets/js/search.js"></script>
 <script src="/assets/js/404.js"></script>
+<script src="/assets/js/entity.js"></script>
 
 <button id="backToTop" aria-label="Back to top"></button>
 </body>
