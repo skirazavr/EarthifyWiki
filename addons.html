@@ -20,7 +20,7 @@
 
     <div class="search-container">
         <label>
-            <input type="search" class="search-input"  placeholder="Search">
+            <input type="search" class="search-input" placeholder="Search">
         </label>
     </div>
 </header>
@@ -223,14 +223,22 @@ tag(EarthifyEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
                         class="code-constant">MOVEMENT_SPEED</span>, <span class="code-number">0.15</span>,
             AttributeModifier.Operation.<span class="code-constant">ADD_MULTIPLIED_TOTAL</span>);
     }
+
+    <span class="code-annotation">@Override</span>
+    <span class="code-keyword">public void</span> <span class="code-method">registerExtractionBehaviour</span>(IExtractionBehaviourRegistration registration) {
+        registration.forRecipe(<span class="code-string">"mod_id"</span>, <span
+                        class="code-string">"recipe"</span>).effect(MobEffects.<span
+                        class="code-constant">NAUSEA</span>, <span class="code-number">4.0D</span>, <span
+                        class="code-number">4</span>, <span class="code-number">0</span>)
+            .damage(<span class="code-number">1F</span>, <span class="code-number">3D</span>);
+    }
 }</code></pre>
         </div>
 
         <h3>Current Capabilities</h3>
 
         <p>
-            The extension API is still under development. Currently, extensions
-            are mainly intended for attribute customization.
+            The extension API is still under development.
         </p>
 
         <table class="tags-table">
@@ -244,6 +252,13 @@ tag(EarthifyEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
                 <td>
                     Add additional attribute modifiers to Mixture (for example) to
                     enhance its power.
+                </td>
+            </tr>
+
+            <tr>
+                <td>Extraction Behaviour</td>
+                <td>
+                    Add additional behaviour modifiers to Extractor while extraction recipe is processed.
                 </td>
             </tr>
         </table>
