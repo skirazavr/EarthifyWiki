@@ -104,30 +104,45 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         card.addEventListener("mousemove", e => {
+            const gap = 20;
 
-            let x = e.pageX + 20;
-            let y = e.pageY + 20;
+            const rect = preview.getBoundingClientRect();
 
-            const rect =
-                preview.getBoundingClientRect();
+            const cursorX = e.pageX;
+            const cursorY = e.pageY;
 
-            if (
-                x + rect.width >
-                window.scrollX + window.innerWidth
-            ) {
-                x = e.pageX - rect.width - 20;
+            const viewportLeft = window.scrollX;
+            const viewportRight = window.scrollX + window.innerWidth;
+            const viewportBottom = window.scrollY + window.innerHeight;
+
+            const spaceRight = viewportRight - cursorX;
+            const spaceLeft = cursorX - viewportLeft;
+
+            let x;
+
+            if (spaceRight >= rect.width + gap) {
+                x = cursorX + gap;
+            } else if (spaceLeft >= rect.width + gap) {
+                x = cursorX - rect.width - gap;
+            } else {
+                x = Math.max(
+                    viewportLeft + gap,
+                    viewportRight - rect.width - gap
+                );
             }
 
-            if (
-                y + rect.height >
-                window.scrollY + window.innerHeight
-            ) {
-                y = e.pageY - rect.height - 20;
+            let y = cursorY + gap;
+
+            if (y + rect.height > viewportBottom - gap) {
+                y = cursorY - rect.height - gap;
+            }
+
+            if (y < window.scrollY + gap) {
+                y = window.scrollY + gap;
             }
 
             preview.style.left = `${x}px`;
             preview.style.top = `${y}px`;
-
         });
 
         card.addEventListener("mouseleave", () => {
