@@ -33,6 +33,7 @@
         <a href="#tags">Available Tags</a>
         <a href="#extensions">Plugin Extensions API</a>
         <a href="#extraction">Extraction Recipes</a>
+        <a href="#extraction-extension">Extraction Category Extensions</a>
     </nav>
 
     <main class="main">
@@ -344,6 +345,126 @@ tag(EarthifyEntityTypeTags.<span style="color:#b392f0;">BESTIARY</span>)
             <code>.extractionTime(<span class="code-number">ticks</span>)</code>. If not specified, the default
             extraction
             time is <strong>1200 ticks</strong> (60 seconds).
+        </p>
+
+        <hr/>
+
+        <h2 id="extraction-extension">6. Extraction Book Extensions</h2>
+
+        <p>
+            Earthify's Extractor Recipe Book can be extended by add-ons.
+            Add-ons can register custom extraction book categories and custom recipe book tabs.
+        </p>
+
+        <h3>Register a Custom Category</h3>
+
+        <p>
+            Create a new <code>ExtractionBookCategory</code> using NeoForge's enum extension system.
+            The category can then be used by extraction recipes.
+        </p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>Java</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code><span class="code-keyword">public static final</span> EnumProxy&lt;ExtractionBookCategory&gt; <span
+                    class="code-constant"><i>NAME</i></span> =
+        <span class="code-keyword">new</span> EnumProxy&lt;&gt;(
+            ExtractionBookCategory.<span class="code-keyword">class</span>,
+            <span class="code-string">"mymod:name"</span>,
+            <span class="code-number">-1</span>
+        );</code></pre>
+        </div>
+
+        <p>
+            Add the enum extension to your <code>enumextensions.json</code> :
+        </p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>JSON</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>{
+    "enum": "com/skirazavr/earthify/world/item/crafting/ExtractionBookCategory",
+    "name": "MYMOD_NAME",
+    "constructor": "(Ljava/lang/String;I)V",
+    "parameters": {
+        "class": "com/mymod/ExampleClass",
+        "field": "NAME"
+    }
+}</code></pre>
+        </div>
+
+        <h3>Register a Recipe Book Category</h3>
+
+        <p>
+            Register a <code>RecipeBookCategory</code> for the custom extraction category using FMLCommonSetupEvent (for example):
+        </p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>Java</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>ExtractionBookCategories.<i>register</i>(ExtractionBookCategory.<i>valueOf</i>(<span
+                    class="code-string">"MODID_NAME"</span>), MyRecipeBookCategories.<span
+                    class="code-constant"><i>CATEGORY</i></span>);</code></pre>
+        </div>
+
+        <h3>Register a Custom Recipe Book Tab</h3>
+
+        <p>
+            Add-ons can register one or two items as the tab icon.
+            The supplied values are resolved when the Extractor Recipe Book is created.
+        </p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>Java</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>ExtractionRecipeBookTabs.<i>register</i>(
+    MyItems.<span class="code-constant"><i>ITEM</i></span>,
+    MyRecipeBookCategories.<span class="code-constant"><i>CATEGORY</i></span>
+);</code></pre>
+        </div>
+
+        <p>
+            To use two icons:
+        </p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>Java</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>ExtractionRecipeBookTabs.<i>register</i>(
+    MyItems.<span class="code-constant"><i>ITEM_1</i></span>,
+    MyItems.<span class="code-constant"><i>ITEM_2</i></span>,
+    MyRecipeBookCategories.<span class="code-constant"><i>CATEGORY</i></span>
+);</code></pre>
+        </div>
+
+        <h3>Use the Custom Category in a Recipe</h3>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span>Java</span>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>ExtractionRecipeBuilder
+    .<i>extractFrom</i>(MyItems.<span class="code-constant"><i>EXAMPLE_ITEM_1</i></span>)
+    .to(MyItems.<span class="code-constant"><i>EXAMPLE_ITEM_2</i></span>)
+    .category(ExtractionBookCategory.valueOf(<span class="code-string">"MYMOD_NAME"</span>))
+    .extractionTime(<span class="code-number">300</span>)
+    .experience(<span class="code-number">1F</span>)
+    .save(output);</code></pre>
+        </div>
+
+        <p>
+            The custom category is then connected to the registered recipe book tab.
         </p>
     </main>
 </div>
