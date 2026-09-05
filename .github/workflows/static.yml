@@ -3,7 +3,7 @@ name: Deploy Earthify Wiki
 on:
   push:
     branches:
-      - main
+      - wiki
   workflow_dispatch:
 
 permissions:
