@@ -1,202 +1,335 @@
+
 @font-face {
     font-family: 'JetBrains Mono';
     src: url('/assets/fonts/jetbrains.woff2') format('woff2');
+    font-display: swap;
+}
+
+:root {
+    --code-bg: #161b22;
+    --code-bg-header: #1c222b;
+    --code-border: #303943;
+    --code-text: #e6edf3;
+    --code-muted: #919eac;
+
+    --code-accent: #5fba78;
+    --code-accent-hover: #7bd394;
+
+    --code-button-bg: #252e38;
+    --code-button-hover: #323e4b;
+
+    --code-radius: 12px;
+    --code-shadow:
+            0 4px 12px rgb(0 0 0 / 12%),
+            0 16px 40px rgb(0 0 0 / 10%);
 }
 
 :not(pre) > code {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    line-height: 1.6;
+
+    color: #b9e6a5;
+    background: #202a27;
+
     padding: 2px 6px;
-    color: #d2a8ff;
-    background: #2b3138;
-    border: 1px solid #40464d;
-    border-radius: 6px;
+    border: 1px solid #34463d;
+    border-radius: 5px;
+
+    overflow-wrap: break-word;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 .code-block {
-    background: #1f2329;
-    border: 1px solid #353b42;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
-    overflow: hidden;
     position: relative;
+    isolation: isolate;
+
+    margin: 20px 0;
+    overflow: hidden;
+
+    color: var(--code-text);
+    background: var(--code-bg);
+
+    border: 1px solid var(--code-border);
+    border-radius: var(--code-radius);
+
+    box-shadow: var(--code-shadow);
+
+    transition:
+            border-color .2s ease,
+            box-shadow .2s ease;
+}
+
+.code-block:hover {
+    border-color: #465443;
+    box-shadow:
+            0 4px 16px rgb(0 0 0 / 16%),
+            0 16px 40px rgb(0 0 0 / 12%);
 }
 
 .code-block + p {
     margin-top: 24px;
 }
 
+.code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    min-height: 42px;
+    padding: 8px 14px 8px 16px;
+    margin: 0;
+
+    color: #b6c2cf;
+    background: var(--code-bg-header);
+
+    border-bottom: 1px solid var(--code-border);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .025em;
+}
+
+.code-header > span,
+.code-header > div:first-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .code-block pre {
     margin: 0;
-    padding: 16px;
+    padding: 18px 20px;
+
     overflow-x: auto;
+    overflow-y: hidden;
+
+    background: transparent;
+
+    tab-size: 4;
+    scrollbar-width: thin;
+    scrollbar-color: #46515e transparent;
 }
 
 .code-block code {
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
-    line-height: 1.6;
-    color: #e6edf3;
-}
+    font-weight: 400;
+    line-height: 1.75;
 
-.code-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 16px;
-    background: #262b30;
-    border-bottom: 1px solid #353b42;
-    font-size: 12px;
-    font-weight: 600;
-    color: #c9d1d9;
-    margin: 0;
+    color: var(--code-text);
+
+    white-space: pre;
+    overflow-wrap: normal;
+    word-break: normal;
+
+    font-variant-ligatures: contextual;
+    font-feature-settings: "calt" 1;
 }
 
 .code-block pre::-webkit-scrollbar {
+    width: 8px;
     height: 8px;
 }
 
 .code-block pre::-webkit-scrollbar-track {
-    background: #262b30;
+    background: transparent;
 }
 
 .code-block pre::-webkit-scrollbar-thumb {
-    background: #4a4f55;
+    background: #3a4652;
+    border: 2px solid var(--code-bg);
     border-radius: 999px;
 }
 
 .code-block pre::-webkit-scrollbar-thumb:hover {
-    background: #5c636b;
+    background: #586675;
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    padding: 5px 11px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    color: #c6d0dc;
+    background: var(--code-button-bg);
+
+    border: 1px solid #394552;
+    border-radius: 7px;
+
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+
+    transition:
+            background .16s ease,
+            border-color .16s ease,
+            color .16s ease,
+            transform .16s ease;
+}
+
+.copy-btn:hover {
+    color: #ffffff;
+    background: var(--code-button-hover);
+    border-color: #526170;
+}
+
+.copy-btn:active {
+    transform: scale(.96);
+}
+
+.copy-btn:focus-visible {
+    outline: 2px solid var(--code-accent);
+    outline-offset: 3px;
+}
+
+.copy-btn.copied {
+    color: #a5f3b6;
+    background: #193a29;
+    border-color: #357b4b;
 }
 
 .code-block:not(:has(.code-header)) .copy-btn {
     position: absolute;
-    top: 10px;
-    right: 16px;
-}
+    z-index: 2;
 
-.code-header .copy-btn {
-    position: static;
-}
-
-.copy-btn {
-    padding: 4px 10px;
-    font-family: inherit;
-    font-size: 10px;
-    color: #d8dee5;
-    background: #353b42;
-    border: 1px solid #4a4f55;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background .15s ease, border-color .15s ease, transform .15s ease;
-}
-
-.copy-btn:hover {
-    background: #40474f;
-    border-color: #5b6168;
-}
-
-.copy-btn:active {
-    transform: scale(.97);
-}
-
-.copy-btn.copied {
-    background: #0f6f40;
-    border-color: #158f54;
+    top: 12px;
+    right: 12px;
 }
 
 .code-keyword {
-    color: #CF8E6D;
+    color: #ff9e78;
 }
 
 .code-annotation {
-    color: #B3AE60;
+    color: #e5c07b;
 }
 
 .code-type {
-    color: #56A8F5;
+    color: #70b8ff;
 }
 
 .code-method {
-    color: #74C0FC;
+    color: #82caff;
 }
 
 .code-string {
-    color: #6AAB73;
+    color: #a5d6a7;
 }
 
 .code-number {
-    color: #2AACB8;
+    color: #79c8d2;
 }
 
 .code-constant {
-    color: #C77DBB;
+    color: #d2a8ff;
 }
 
 .code-variable {
-    color: #BCBEC4;
+    color: #c9d1d9;
 }
 
 .code-package {
-    color: #BCBEC4;
+    color: #919eac;
 }
 
 h2 + .code-block {
     margin-top: 16px;
 }
 
+.code-block pre ::selection {
+    color: #ffffff;
+    background: #356b50;
+}
+
 @media (max-width: 900px) {
     .code-block {
-        padding: 10px;
+        margin: 16px 0;
+        border-radius: 10px;
+
+        box-shadow:
+                0 4px 16px rgb(0 0 0 / 18%),
+                inset 0 1px rgb(255 255 255 / 2%);
+    }
+
+    .code-block:hover {
+        border-color: var(--code-border);
     }
 
     .code-header {
-        margin: -10px -10px 10px -10px;
+        min-height: 40px;
+        padding: 8px 10px 8px 13px;
+        font-size: 11px;
+    }
+
+    .code-block pre {
+        padding: 14px;
+        -webkit-overflow-scrolling: touch;
     }
 
     .code-block code {
         font-size: 12px;
+        line-height: 1.7;
     }
 
     .copy-btn {
-        font-size: 9px;
-        min-width: 50px;
+        min-height: 30px;
+        padding: 5px 9px;
+        font-size: 10px;
     }
 
-    .code-block {
-        background: rgba(43, 47, 53, .45);
-        border: 1px solid rgba(255,255,255,.08);
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 -1px rgba(255,255,255,.04);
-    }
-
-    .code-header {
-        background: rgba(255,255,255,.04);
-        border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .code-block pre {
-        background: transparent;
-    }
-
-    .copy-btn {
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.08);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-    }
-
-    .copy-btn:hover {
-        background: rgba(255,255,255,.10);
+    .code-block:not(:has(.code-header)) .copy-btn {
+        top: 10px;
+        right: 10px;
     }
 
     :not(pre) > code {
-        color: #d2a8ff;
-        background: rgba(43, 47, 53, .45);
-        border: 1px solid rgba(255,255,255,.08);
-        backdrop-filter: blur(12px) saturate(170%);
-        -webkit-backdrop-filter: blur(12px) saturate(170%);
-        box-shadow: 0 4px 12px rgba(0,0,0,.25), inset 0 -1px rgba(255,255,255,.04);
+        font-size: .85em;
+        padding: 2px 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .code-block {
+        border-radius: 8px;
+    }
+
+    .code-header {
+        gap: 8px;
+        padding: 7px 9px 7px 11px;
+    }
+
+    .code-block pre {
+        padding: 12px;
+    }
+
+    .code-block code {
+        font-size: 11px;
+    }
+
+    .copy-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .code-block,
+    .copy-btn {
+        transition: none;
     }
 }
